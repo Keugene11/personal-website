@@ -17,6 +17,20 @@ Plans include real venue names with prices, clickable Google Maps links, an inte
 
 Beyond coaching, the app tracks daily check-ins (opportunities spotted, approaches made, conversations started), maintains approach streaks with streak freezes, and visualizes progress through stats dashboards and calendar heatmaps. A community feed lets users share wins, upvote posts, and browse others' stories. Available as a PWA and Android app via Trusted Web Activity, with a freemium model — free users get one session, Pro unlocks everything at $15/month or $120/year.`,
   },
+  {
+    name: "Benefits Finder",
+    url: "https://keugene11.github.io/benefits-finder/",
+    stack: ["React", "JavaScript", "GitHub Pages"],
+    description: `An interactive tool that helps users discover government assistance programs they qualify for. Users answer a short questionnaire about household size, income, and employment status, and the app instantly matches them against 24 federal and state programs — SNAP, Medicaid, housing vouchers, and more — with estimated annual savings.`,
+  },
+];
+
+const skills = [
+  { category: "Languages", items: ["JavaScript", "TypeScript", "SQL"] },
+  { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Vite"] },
+  { category: "Backend", items: ["Node.js", "Express", "PostgreSQL", "Firebase"] },
+  { category: "APIs & AI", items: ["Claude API", "OpenAI API", "Vercel AI SDK", "Stripe API", "Google Places API"] },
+  { category: "Tools", items: ["Git", "Vercel", "Supabase", "Claude Code"] },
 ];
 
 export default function Home() {
@@ -99,6 +113,32 @@ export default function Home() {
                     className="text-[11px] text-text-muted bg-bg-input px-2.5 py-1 rounded-full"
                   >
                     {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-[13px] uppercase tracking-widest text-text-muted mb-8 font-medium">
+          Skills
+        </h2>
+        <div className="space-y-4">
+          {skills.map((group) => (
+            <div key={group.category} className="flex items-baseline gap-3">
+              <span className="text-[13px] font-medium text-text w-20 flex-shrink-0">
+                {group.category}
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {group.items.map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-[12px] text-text-muted bg-bg-input px-2.5 py-1 rounded-full"
+                  >
+                    {skill}
                   </span>
                 ))}
               </div>
