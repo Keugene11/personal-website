@@ -1,28 +1,21 @@
 import { Mail, Github, Linkedin, ExternalLink, Download } from "lucide-react";
-import ScreenshotImage from "@/components/ScreenshotImage";
 
 const projects = [
   {
     name: "Daily",
-    description: "AI-powered day planner that generates personalized city itineraries from 15+ real-time APIs.",
     url: "https://getdaily.live",
-    stack: ["React", "Express", "Claude API", "Supabase"],
-    screenshots: [
-      { src: "/screenshots/daily-1.png", alt: "Daily screenshot 1" },
-      { src: "/screenshots/daily-2.png", alt: "Daily screenshot 2" },
-      { src: "/screenshots/daily-3.png", alt: "Daily screenshot 3" },
-    ],
+    stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Stripe", "Google Places API"],
+    description: `An AI-powered day planner that creates personalized city itineraries in real-time. Users enter a city and budget, and the app pulls live data from 15+ external APIs — Google Places for restaurants and attractions, weather forecasts, transit schedules, event listings, parking availability, and more — then streams it all to Claude, which synthesizes everything into a complete, contextualized day plan.
+
+Plans include real venue names with prices, clickable Google Maps links, an interactive map plotting every location, weather-based outfit suggestions, and a nightlife mode for evening plans. The backend uses Server-Sent Events to stream each data source as it resolves, so users see the plan build in real-time. Monetized with Stripe subscriptions ($4.99/month or $39.99/year) for unlimited plans.`,
   },
   {
     name: "Wingmate",
-    description: "AI confidence coach that helps users overcome social anxiety with real-time coaching and streak tracking.",
     url: "https://wingmate.live",
-    stack: ["Next.js", "Claude API", "Supabase", "Stripe"],
-    screenshots: [
-      { src: "/screenshots/wingmate-1.png", alt: "Wingmate screenshot 1" },
-      { src: "/screenshots/wingmate-2.png", alt: "Wingmate screenshot 2" },
-      { src: "/screenshots/wingmate-3.png", alt: "Wingmate screenshot 3" },
-    ],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Vercel AI SDK", "Supabase", "Stripe", "Tailwind CSS"],
+    description: `A mobile-first AI coaching app designed to help people build confidence and overcome social anxiety around cold approaching. The AI coach uses Claude Sonnet via the Vercel AI SDK to deliver raw, friend-like motivation — not generic chatbot responses — with specific openers tailored to the situation, fear breakdowns, and real-time encouragement.
+
+Beyond coaching, the app tracks daily check-ins (opportunities spotted, approaches made, conversations started), maintains approach streaks with streak freezes, and visualizes progress through stats dashboards and calendar heatmaps. A community feed lets users share wins, upvote posts, and browse others' stories. Available as a PWA and Android app via Trusted Web Activity, with a freemium model — free users get one session, Pro unlocks everything at $15/month or $120/year.`,
   },
 ];
 
@@ -77,10 +70,10 @@ export default function Home() {
         <h2 className="text-[13px] uppercase tracking-widest text-text-muted mb-8 font-medium">
           Projects
         </h2>
-        <div className="space-y-12 stagger">
+        <div className="space-y-14 stagger">
           {projects.map((project) => (
             <div key={project.name}>
-              <div className="flex items-baseline justify-between mb-2">
+              <div className="flex items-baseline justify-between mb-3">
                 <h3 className="text-[20px] font-semibold tracking-tight">{project.name}</h3>
                 <a
                   href={project.url}
@@ -91,19 +84,15 @@ export default function Home() {
                   Visit <ExternalLink size={12} strokeWidth={2} />
                 </a>
               </div>
-              <p className="text-[14px] text-text-muted leading-relaxed mb-4">
-                {project.description}
-              </p>
 
-              {/* Screenshots */}
-              <div className="flex gap-3 overflow-x-auto mb-4 -mx-1 px-1 pb-2">
-                {project.screenshots.map((shot, i) => (
-                  <ScreenshotImage key={i} src={shot.src} alt={shot.alt} />
-                ))}
-              </div>
+              {project.description.split("\n\n").map((paragraph, i) => (
+                <p key={i} className="text-[14px] text-text-muted leading-relaxed mb-3">
+                  {paragraph}
+                </p>
+              ))}
 
               {/* Stack */}
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-1.5 mt-4">
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
