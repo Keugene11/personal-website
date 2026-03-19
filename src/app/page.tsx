@@ -105,7 +105,7 @@ function Hero() {
             <Github size={18} strokeWidth={1.5} />
           </a>
           <a
-            href="https://linkedin.com/in/keugenelee"
+            href="https://www.linkedin.com/in/keugene-lee-286246268/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center w-11 h-11 border border-border rounded-full press hover:bg-bg-card-hover transition-colors"
@@ -232,7 +232,7 @@ function Footer() {
           <a href="https://github.com/keugene11" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-text transition-colors">
             <Github size={16} strokeWidth={1.5} />
           </a>
-          <a href="https://linkedin.com/in/keugenelee" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-text transition-colors">
+          <a href="https://www.linkedin.com/in/keugene-lee-286246268/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-text transition-colors">
             <Linkedin size={16} strokeWidth={1.5} />
           </a>
         </div>
