@@ -125,9 +125,13 @@ export default function Home() {
                 </a>
               </div>
 
-              <ul className="mt-3 space-y-1.5">
-                {project.bullets.map((bullet, i) => (
-                  <li key={i} className="text-[14px] text-[14px] text-text leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-text-muted before:font-bold">
+              <p className="mt-2 text-[15px] text-text leading-relaxed">
+                {project.bullets[0]}
+              </p>
+
+              <ul className="mt-2.5 space-y-1.5">
+                {project.bullets.slice(1).map((bullet, i) => (
+                  <li key={i} className="text-[13px] text-text-muted leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:font-bold">
                     {bullet}
                   </li>
                 ))}
