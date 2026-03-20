@@ -2,7 +2,7 @@
 
 My personal portfolio website showcasing AI-powered projects I've built.
 
-**Live:** [keugenelee.com](https://keugenelee.com)
+**Live:** [personalwebsite-rho-ten.vercel.app](https://personalwebsite-rho-ten.vercel.app/)
 
 ## Projects
 
