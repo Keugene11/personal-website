@@ -2,6 +2,18 @@ import { Mail, Github, Linkedin, ExternalLink, Download } from "lucide-react";
 
 const projects = [
   {
+    name: "Wingmate",
+    url: "https://wingmate.live",
+    urlLabel: "wingmate.live",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Vercel AI SDK", "Supabase", "Stripe", "Tailwind CSS"],
+    bullets: [
+      "Mobile-first AI coaching app that helps people build confidence through real-time Claude Sonnet coaching with personalized openers and fear breakdowns",
+      "Tracks daily check-ins, approach streaks, and visualizes progress with stats dashboards and calendar heatmaps",
+      "Community feed where users share wins and upvote posts",
+      "Available as a PWA and Android app (Google Play Store) with Stripe-powered freemium subscriptions",
+    ],
+  },
+  {
     name: "SoundSense",
     url: "https://soundsense.vercel.app",
     urlLabel: "soundsense.vercel.app",
@@ -23,18 +35,6 @@ const projects = [
       "Claude synthesizes all data into a complete plan with real venues, prices, Google Maps links, and an interactive map",
       "Real-time streaming via Server-Sent Events so users watch the plan build live",
       "Monetized with Stripe subscriptions ($4.99/month or $39.99/year)",
-    ],
-  },
-  {
-    name: "Wingmate",
-    url: "https://wingmate.live",
-    urlLabel: "wingmate.live",
-    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Vercel AI SDK", "Supabase", "Stripe", "Tailwind CSS"],
-    bullets: [
-      "Mobile-first AI coaching app that helps people build confidence through real-time Claude Sonnet coaching with personalized openers and fear breakdowns",
-      "Tracks daily check-ins, approach streaks, and visualizes progress with stats dashboards and calendar heatmaps",
-      "Community feed where users share wins and upvote posts",
-      "Available as a PWA and Android app (Google Play Store) with Stripe-powered freemium subscriptions",
     ],
   },
   {
