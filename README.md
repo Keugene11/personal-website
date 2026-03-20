@@ -1,4 +1,4 @@
-# keugenelee.com
+# Personal Website
 
 My personal portfolio website showcasing AI-powered projects I've built.
 
