@@ -2,6 +2,18 @@ import { Mail, Github, Linkedin, ExternalLink, Download } from "lucide-react";
 
 const projects = [
   {
+    name: "SoundSense",
+    url: "https://soundsense.vercel.app",
+    urlLabel: "soundsense.vercel.app",
+    stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "FastAPI", "YouTube Data API", "Last.fm API"],
+    bullets: [
+      "AI music discovery app — enter a song you like and get 10 verified recommendations with explanations of why you'll love each one",
+      "Claude analyzes sonic qualities, production techniques, and genre genealogy to find songs that match the energy and mood, not just the genre",
+      "Every recommendation is verified across YouTube, Last.fm, MusicBrainz, and ListenBrainz to ensure every song is real and playable",
+      "Connects to YouTube Music via OAuth to analyze listening history and generate personalized discovery playlists",
+    ],
+  },
+  {
     name: "Daily",
     url: "https://getdaily.live",
     urlLabel: "getdaily.live",
