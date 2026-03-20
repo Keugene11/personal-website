@@ -7,8 +7,8 @@ My personal portfolio website showcasing AI-powered projects I've built.
 ## Projects
 
 - **Wingmate** — Mobile-first AI coaching app with real-time Claude Sonnet coaching, progress tracking, and community features
-- **SoundSense** — AI music discovery app that finds verified song recommendations based on sonic qualities and mood
 - **Daily** — AI-powered day planner generating personalized city itineraries from 15+ real-time APIs
+- **SoundSense** — AI music discovery app that finds verified song recommendations based on sonic qualities and mood
 - **Benefits Finder** — Interactive tool matching users to government assistance programs they qualify for
 
 ## Tech Stack

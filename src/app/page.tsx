@@ -14,18 +14,6 @@ const projects = [
     ],
   },
   {
-    name: "SoundSense",
-    url: "https://soundsense.vercel.app",
-    urlLabel: "soundsense.vercel.app",
-    stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "FastAPI", "YouTube Data API", "Last.fm API"],
-    bullets: [
-      "AI music discovery app — enter a song you like and get 10 verified recommendations with explanations of why you'll love each one",
-      "Claude analyzes sonic qualities, production techniques, and genre genealogy to find songs that match the energy and mood, not just the genre",
-      "Every recommendation is verified across YouTube, Last.fm, MusicBrainz, and ListenBrainz to ensure every song is real and playable",
-      "Connects to YouTube Music via OAuth to analyze listening history and generate personalized discovery playlists",
-    ],
-  },
-  {
     name: "Daily",
     url: "https://getdaily.live",
     urlLabel: "getdaily.live",
@@ -35,6 +23,18 @@ const projects = [
       "Claude synthesizes all data into a complete plan with real venues, prices, Google Maps links, and an interactive map",
       "Real-time streaming via Server-Sent Events so users watch the plan build live",
       "Monetized with Stripe subscriptions ($4.99/month or $39.99/year)",
+    ],
+  },
+  {
+    name: "SoundSense",
+    url: "https://soundsense.vercel.app",
+    urlLabel: "soundsense.vercel.app",
+    stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "FastAPI", "YouTube Data API", "Last.fm API"],
+    bullets: [
+      "AI music discovery app — enter a song you like and get 10 verified recommendations with explanations of why you'll love each one",
+      "Claude analyzes sonic qualities, production techniques, and genre genealogy to find songs that match the energy and mood, not just the genre",
+      "Every recommendation is verified across YouTube, Last.fm, MusicBrainz, and ListenBrainz to ensure every song is real and playable",
+      "Connects to YouTube Music via OAuth to analyze listening history and generate personalized discovery playlists",
     ],
   },
   {
