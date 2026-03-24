@@ -2,18 +2,6 @@ import { Mail, Github, Linkedin, ExternalLink, Download } from "lucide-react";
 
 const projects = [
   {
-    name: "Wingmate",
-    url: "https://wingmate.live",
-    urlLabel: "wingmate.live",
-    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Vercel AI SDK", "Supabase", "Stripe", "Tailwind CSS"],
-    bullets: [
-      "Mobile-first AI coaching app that helps people build confidence through real-time Claude Sonnet coaching with personalized openers and fear breakdowns",
-      "Tracks daily check-ins, approach streaks, and visualizes progress with stats dashboards and calendar heatmaps",
-      "Community feed where users share wins and upvote posts",
-      "Available as a PWA and Android app (Google Play Store) with Stripe-powered freemium subscriptions",
-    ],
-  },
-  {
     name: "Daily",
     url: "https://getdaily.live",
     urlLabel: "getdaily.live",
@@ -47,6 +35,18 @@ const projects = [
       "Short questionnaire about household size, income, and employment status",
       "Instantly matches against 24 federal and state programs — SNAP, Medicaid, housing vouchers, and more",
       "Shows estimated annual savings for each matched program",
+    ],
+  },
+  {
+    name: "Wingmate",
+    url: "https://wingmate.live",
+    urlLabel: "wingmate.live",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Vercel AI SDK", "Supabase", "Stripe", "Tailwind CSS"],
+    bullets: [
+      "Mobile-first AI coaching app that helps people build confidence through real-time Claude Sonnet coaching with personalized openers and fear breakdowns",
+      "Tracks daily check-ins, approach streaks, and visualizes progress with stats dashboards and calendar heatmaps",
+      "Community feed where users share wins and upvote posts",
+      "Available as a PWA and Android app (Google Play Store) with Stripe-powered freemium subscriptions",
     ],
   },
 ];
