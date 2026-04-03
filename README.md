@@ -1,15 +1,18 @@
 # Personal Website
 
-My personal portfolio website showcasing AI-powered projects I've built.
+My personal portfolio website showcasing AI-powered products and social platforms I've built.
 
 **Live:** [personalwebsite-rho-ten.vercel.app](https://personalwebsite-rho-ten.vercel.app/)
 
 ## Projects
 
-- **Wingmate** — Mobile-first AI coaching app with real-time Claude Sonnet coaching, progress tracking, and community features
 - **Daily** — AI-powered day planner generating personalized city itineraries from 15+ real-time APIs
 - **SoundSense** — AI music discovery app that finds verified song recommendations based on sonic qualities and mood
 - **Benefits Finder** — Interactive tool matching users to government assistance programs they qualify for
+- **Wingmate** — Mobile-first AI coaching app with real-time Claude Sonnet coaching, progress tracking, and community features
+- **SBUdate** — Dating app for Stony Brook University students with Hinge-style matching and real-time messaging
+- **SBUpost** — Social network for SBU students to share posts, follow classmates, and discover people by major or courses
+- **Ardsleypost** — Community social network for Ardsley with a local services marketplace and Stripe payments
 
 ## Tech Stack
 

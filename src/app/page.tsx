@@ -49,6 +49,42 @@ const projects = [
       "Available as a PWA and Android app (Google Play Store) with Stripe-powered freemium subscriptions",
     ],
   },
+  {
+    name: "SBUdate",
+    url: "https://sbudate.vercel.app",
+    urlLabel: "sbudate.vercel.app",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Capacitor", "Google OAuth"],
+    bullets: [
+      "Dating app built exclusively for Stony Brook University students — Hinge-style profile discovery with photos, prompts, and a mutual-like matching system",
+      "11-step onboarding captures major, grad year, residence hall, and lifestyle preferences for smarter matching",
+      "Real-time messaging with read receipts, turn indicators, and unread badges",
+      "Available on iOS and Android via Capacitor with automated builds through GitHub Actions",
+    ],
+  },
+  {
+    name: "SBUpost",
+    url: "https://sbupost.vercel.app",
+    urlLabel: "sbupost.vercel.app",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Capacitor", "Nodemailer"],
+    bullets: [
+      "Social network for Stony Brook University students — share posts with text and media, follow classmates, and discover people by major, clubs, or courses",
+      "Rich media posts with up to 4 attachments (images and video), likes, comments, and impression tracking",
+      "Direct messaging with admin moderation and content approval pipeline",
+      "Available on iOS and Android with push notifications and admin email alerts for new content",
+    ],
+  },
+  {
+    name: "Ardsleypost",
+    url: "https://ardsleypost.vercel.app",
+    urlLabel: "ardsleypost.vercel.app",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Stripe", "Tailwind CSS", "Capacitor", "Nodemailer"],
+    bullets: [
+      "Community social network for Ardsley students, parents, and alumni — combining a news feed with a local services marketplace",
+      "Categorized posts (tutoring, babysitting, events, for-sale, jobs, lost-found) with admin moderation and email approval workflows",
+      "Built-in payments via Stripe Connect so community members can buy and sell services directly",
+      "Available on iOS (App Store) and Android (Google Play) via Capacitor with public browsing for non-authenticated visitors",
+    ],
+  },
 ];
 
 const skills = [
@@ -56,7 +92,7 @@ const skills = [
   { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Vite"] },
   { category: "Backend", items: ["Node.js", "Express", "PostgreSQL", "Firebase"] },
   { category: "APIs & AI", items: ["Claude API", "OpenAI API", "Vercel AI SDK", "Stripe API", "Google Places API"] },
-  { category: "Tools", items: ["Git", "Vercel", "Supabase", "Claude Code"] },
+  { category: "Tools", items: ["Git", "Vercel", "Supabase", "Capacitor", "Claude Code"] },
 ];
 
 export default function Home() {
