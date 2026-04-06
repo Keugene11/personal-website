@@ -3,8 +3,8 @@ import { Mail, Github, Linkedin, ExternalLink, Download } from "lucide-react";
 const projects = [
   {
     name: "StonyLoop",
-    url: "https://stonyloop.vercel.app",
-    urlLabel: "stonyloop.vercel.app",
+    url: "https://stonyloop.com",
+    urlLabel: "stonyloop.com",
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Google OAuth"],
     bullets: [
       "The Facebook for Stony Brook University — a full social network where students find classmates, connect by dorm, and stay in the loop",
