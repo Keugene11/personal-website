@@ -2,6 +2,18 @@ import { Mail, Github, Linkedin, ExternalLink, Download } from "lucide-react";
 
 const projects = [
   {
+    name: "StonyLoop",
+    url: "https://stonyloop.vercel.app",
+    urlLabel: "stonyloop.vercel.app",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Google OAuth"],
+    bullets: [
+      "The Facebook for Stony Brook University — a full social network where students find classmates, connect by dorm, and stay in the loop",
+      "Complete profile system with major, dorm, courses, Greek life, clubs, privacy controls, and profile view tracking",
+      "Wall posts with photo/video uploads, likes, comments, and threaded replies with real-time notifications",
+      "Friend network visualization, groups with cover images, direct messaging, pokes, and block/report system",
+    ],
+  },
+  {
     name: "Daily",
     url: "https://getdaily.live",
     urlLabel: "getdaily.live",
