@@ -6,6 +6,7 @@ const projects = [
     name: "Wingmate",
     url: "https://wingmate.live",
     urlLabel: "wingmate.live",
+    github: "https://github.com/Keugene11/Wingmate",
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
     bullets: [
       "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play with $200+ in subscription revenue",
@@ -16,9 +17,23 @@ const projects = [
     ],
   },
   {
+    name: "SoundSense",
+    url: "https://soundsense.vercel.app",
+    urlLabel: "soundsense.vercel.app",
+    github: "https://github.com/Keugene11/SoundSense",
+    stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "YouTube Data API", "Last.fm API"],
+    bullets: [
+      "AI music discovery app — enter a song you love and Claude builds a playlist of tracks you'll actually want to hear, each with an explanation of why",
+      "Claude analyzes genre, vibe, and sonic qualities using Last.fm, TasteDive, and ListenBrainz to match energy and mood, not just genre",
+      "Every recommendation is cross-verified on YouTube and Last.fm so every song is real and playable",
+      "Spotify-style playlist player with a now-playing bar, autoplay, and like/dislike feedback that shapes future recommendations",
+    ],
+  },
+  {
     name: "StonyLoop",
     url: "https://stonyloop.com",
     urlLabel: "stonyloop.com",
+    github: "https://github.com/Keugene11/stonyloop",
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Google OAuth"],
     bullets: [
       "The Facebook for Stony Brook University — a social network where verified @stonybrook.edu students find classmates, connect by dorm, and stay in the loop, with 50+ registered users",
@@ -31,30 +46,20 @@ const projects = [
     name: "Daily",
     url: "https://getdaily.live",
     urlLabel: "getdaily.live",
+    github: "https://github.com/Keugene11/daily",
     stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Stripe", "Google Places API"],
     bullets: [
       "AI-powered day planner that turns a city and budget into a complete itinerary, pulling live data from Google Places, weather, transit, events, and more",
-      "Backend calls every relevant tool in parallel, then Claude Sonnet synthesizes the results into real venues with prices, clickable Google Maps links, and an interactive map",
+      "Backend calls every relevant tool in parallel, then Claude Haiku synthesizes the results into real venues with prices, clickable Google Maps links, and an interactive map",
       "Watch the plan build live via Server-Sent Events, with a nightlife mode for evening plans and weather-based outfit suggestions",
       "Monetized with Stripe subscriptions ($4.99/month or $39.99/year) and Supabase auth with cloud-synced plan history",
-    ],
-  },
-  {
-    name: "SoundSense",
-    url: "https://soundsense.vercel.app",
-    urlLabel: "soundsense.vercel.app",
-    stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "YouTube Data API", "Last.fm API"],
-    bullets: [
-      "AI music discovery app — enter a song you love and Claude builds a playlist of tracks you'll actually want to hear, each with an explanation of why",
-      "Claude analyzes genre, vibe, and sonic qualities using Last.fm, TasteDive, and ListenBrainz to match energy and mood, not just genre",
-      "Every recommendation is cross-verified on YouTube and Last.fm so every song is real and playable",
-      "Spotify-style playlist player with a now-playing bar, autoplay, and like/dislike feedback that shapes future recommendations",
     ],
   },
   {
     name: "Benefits Finder",
     url: "https://keugene11.github.io/benefits-finder/",
     urlLabel: "keugene11.github.io/benefits-finder",
+    github: "https://github.com/Keugene11/benefits-finder",
     stack: ["React", "JavaScript", "GitHub Pages"],
     bullets: [
       "Interactive tool that helps users discover government assistance programs they qualify for",
@@ -67,6 +72,7 @@ const projects = [
     name: "SBUdate",
     url: "https://sbudate.vercel.app",
     urlLabel: "sbudate.vercel.app",
+    github: "https://github.com/Keugene11/sbudate",
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Capacitor", "Google OAuth"],
     bullets: [
       "Dating app built exclusively for Stony Brook University students — Hinge-style profile discovery with photos, prompts, and a mutual-like matching system",
@@ -76,21 +82,10 @@ const projects = [
     ],
   },
   {
-    name: "SBUpost",
-    url: "https://sbupost.vercel.app",
-    urlLabel: "sbupost.vercel.app",
-    stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Capacitor", "Nodemailer"],
-    bullets: [
-      "Social network for Stony Brook University students — share posts with text and media, follow classmates, and discover people by major, clubs, or courses",
-      "Rich media posts with up to 4 attachments (images and video), likes, comments, and impression tracking",
-      "Direct messaging with admin moderation and content approval pipeline",
-      "Available on iOS and Android with push notifications and admin email alerts for new content",
-    ],
-  },
-  {
     name: "Ardsleypost",
     url: "https://ardsleypost.vercel.app",
     urlLabel: "ardsleypost.vercel.app",
+    github: "https://github.com/Keugene11/ardsleypost",
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Stripe", "Tailwind CSS", "Capacitor", "Nodemailer"],
     bullets: [
       "Community social network for Ardsley students, parents, and alumni — combining a news feed with a local services marketplace",
@@ -168,14 +163,25 @@ export default function Home() {
                     {project.name}
                   </h3>
                 </a>
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-[13px] text-text-muted hover:text-text transition-colors flex-shrink-0"
-                >
-                  {project.urlLabel} <ExternalLink size={12} strokeWidth={2} />
-                </a>
+                <div className="flex items-center gap-3 flex-shrink-0">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-muted hover:text-text transition-colors"
+                    title="View source on GitHub"
+                  >
+                    <Github size={15} strokeWidth={1.5} />
+                  </a>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-[13px] text-text-muted hover:text-text transition-colors"
+                  >
+                    {project.urlLabel} <ExternalLink size={12} strokeWidth={2} />
+                  </a>
+                </div>
               </div>
 
               <p className="mt-2 text-[15px] text-text leading-relaxed">
