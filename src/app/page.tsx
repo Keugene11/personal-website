@@ -1,16 +1,30 @@
-import { Mail, Github, Linkedin, ExternalLink, Download } from "lucide-react";
+import { Github, Linkedin, ExternalLink, Download } from "lucide-react";
+import EmailReveal from "@/components/EmailReveal";
 
 const projects = [
+  {
+    name: "Wingmate",
+    url: "https://wingmate.live",
+    urlLabel: "wingmate.live",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
+    bullets: [
+      "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play with $200+ in subscription revenue",
+      "Claude-powered AI coach gives a tailored game plan — opener, reading interest, graceful exit — matched to the goal you pick (relationship, social skills, casual dating)",
+      "Roster logs every approach with outcome, contact, and flake/ghost status, then surfaces insights: conversion funnels, flake-rate by attractiveness, streaks, and a world map of where people are from",
+      "Community feed of anonymized field reports with upvotes and comments, plus a Reddit-style board to vote on what gets built next",
+      "One TypeScript codebase (Next.js 16, React 19) wrapped with Capacitor to ship native iOS and Android apps alongside the web version, with Stripe and RevenueCat subscriptions",
+    ],
+  },
   {
     name: "StonyLoop",
     url: "https://stonyloop.com",
     urlLabel: "stonyloop.com",
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Google OAuth"],
     bullets: [
-      "The Facebook for Stony Brook University — a full social network where students find classmates, connect by dorm, and stay in the loop",
-      "Complete profile system with major, dorm, courses, Greek life, clubs, privacy controls, and profile view tracking",
-      "Wall posts with photo/video uploads, likes, comments, and threaded replies with real-time notifications",
-      "Friend network visualization, groups with cover images, direct messaging, pokes, and block/report system",
+      "The Facebook for Stony Brook University — a social network where verified @stonybrook.edu students find classmates, connect by dorm, and stay in the loop, with 50+ registered users",
+      "Full profile system with major, dorm, courses, Greek life, clubs, privacy controls, and profile-view tracking",
+      "Wall posts with photo/video uploads, likes, threaded comments, friend requests, pokes, groups, and direct messaging",
+      "Defense-in-depth security enforced in Postgres row-level security: email-gated signup, per-IP rate limiting, bot-pattern detection, and owner-protection policies — every privacy rule lives in the database, not the app",
     ],
   },
   {
@@ -19,22 +33,22 @@ const projects = [
     urlLabel: "getdaily.live",
     stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Stripe", "Google Places API"],
     bullets: [
-      "AI-powered day planner that generates personalized city itineraries from 15+ real-time APIs — Google Places, weather, transit, events, and more",
-      "Claude synthesizes all data into a complete plan with real venues, prices, Google Maps links, and an interactive map",
-      "Real-time streaming via Server-Sent Events so users watch the plan build live",
-      "Monetized with Stripe subscriptions ($4.99/month or $39.99/year)",
+      "AI-powered day planner that turns a city and budget into a complete itinerary, pulling live data from Google Places, weather, transit, events, and more",
+      "Backend calls every relevant tool in parallel, then Claude Sonnet synthesizes the results into real venues with prices, clickable Google Maps links, and an interactive map",
+      "Watch the plan build live via Server-Sent Events, with a nightlife mode for evening plans and weather-based outfit suggestions",
+      "Monetized with Stripe subscriptions ($4.99/month or $39.99/year) and Supabase auth with cloud-synced plan history",
     ],
   },
   {
     name: "SoundSense",
     url: "https://soundsense.vercel.app",
     urlLabel: "soundsense.vercel.app",
-    stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "FastAPI", "YouTube Data API", "Last.fm API"],
+    stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "YouTube Data API", "Last.fm API"],
     bullets: [
-      "AI music discovery app — enter a song you like and get 10 verified recommendations with explanations of why you'll love each one",
-      "Claude analyzes sonic qualities, production techniques, and genre genealogy to find songs that match the energy and mood, not just the genre",
-      "Every recommendation is verified across YouTube, Last.fm, MusicBrainz, and ListenBrainz to ensure every song is real and playable",
-      "Connects to YouTube Music via OAuth to analyze listening history and generate personalized discovery playlists",
+      "AI music discovery app — enter a song you love and Claude builds a playlist of tracks you'll actually want to hear, each with an explanation of why",
+      "Claude analyzes genre, vibe, and sonic qualities using Last.fm, TasteDive, and ListenBrainz to match energy and mood, not just genre",
+      "Every recommendation is cross-verified on YouTube and Last.fm so every song is real and playable",
+      "Spotify-style playlist player with a now-playing bar, autoplay, and like/dislike feedback that shapes future recommendations",
     ],
   },
   {
@@ -47,18 +61,6 @@ const projects = [
       "Short questionnaire about household size, income, and employment status",
       "Instantly matches against 24 federal and state programs — SNAP, Medicaid, housing vouchers, and more",
       "Shows estimated annual savings for each matched program",
-    ],
-  },
-  {
-    name: "Wingmate",
-    url: "https://wingmate.live",
-    urlLabel: "wingmate.live",
-    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Vercel AI SDK", "Supabase", "Stripe", "Tailwind CSS"],
-    bullets: [
-      "Mobile-first AI coaching app that helps people build confidence through real-time Claude Sonnet coaching with personalized openers and fear breakdowns",
-      "Tracks daily check-ins, approach streaks, and visualizes progress with stats dashboards and calendar heatmaps",
-      "Community feed where users share wins and upvote posts",
-      "Available as a PWA and Android app (Google Play Store) with Stripe-powered freemium subscriptions",
     ],
   },
   {
@@ -117,13 +119,7 @@ export default function Home() {
           Software engineer building AI-powered products.
         </p>
         <div className="flex items-center gap-4">
-          <a
-            href="mailto:keugenelee11@gmail.com"
-            className="text-text-muted hover:text-text transition-colors"
-            title="Email"
-          >
-            <Mail size={18} strokeWidth={1.5} />
-          </a>
+          <EmailReveal email="keugenelee11@gmail.com" />
           <a
             href="https://github.com/Keugene11"
             target="_blank"
@@ -161,13 +157,22 @@ export default function Home() {
         <div className="space-y-14 stagger">
           {projects.map((project) => (
             <div key={project.name}>
-              <div className="flex items-baseline justify-between mb-1">
-                <h3 className="text-[20px] font-semibold tracking-tight">{project.name}</h3>
+              <div className="flex items-baseline justify-between mb-1 gap-3">
                 <a
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-[13px] text-text-muted hover:text-text transition-colors"
+                  className="group"
+                >
+                  <h3 className="text-[20px] font-semibold tracking-tight group-hover:underline underline-offset-4 decoration-1">
+                    {project.name}
+                  </h3>
+                </a>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-[13px] text-text-muted hover:text-text transition-colors flex-shrink-0"
                 >
                   {project.urlLabel} <ExternalLink size={12} strokeWidth={2} />
                 </a>
