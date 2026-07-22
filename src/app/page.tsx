@@ -10,10 +10,10 @@ const projects = [
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
     bullets: [
       "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play with $200+ in subscription revenue",
-      "Claude-powered AI coach gives a tailored game plan — opener, reading interest, graceful exit — matched to the goal you pick (relationship, social skills, casual dating)",
       "Roster logs every approach with outcome, contact, and flake/ghost status, then surfaces insights: conversion funnels, flake-rate by attractiveness, streaks, and a world map of where people are from",
+      "RevenueCat handles iOS in-app purchases and Stripe handles web/Android subscriptions — webhook-driven entitlement sync, past-due billing recovery, and a $9.99/mo or $29.99/yr Pro paywall",
       "Community feed of anonymized field reports with upvotes and comments, plus a Reddit-style board to vote on what gets built next",
-      "One TypeScript codebase (Next.js 16, React 19) wrapped with Capacitor to ship native iOS and Android apps alongside the web version, with Stripe and RevenueCat subscriptions",
+      "Owned the release pipeline end-to-end: Google OAuth + Apple Sign-In, Fastlane + GitHub Actions for Play Store uploads, App Store Connect API automation for iOS submission, and PostHog funnel analytics — one TypeScript codebase wrapped with Capacitor for iOS, Android, and web",
     ],
   },
   {
