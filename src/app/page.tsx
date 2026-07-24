@@ -110,8 +110,11 @@ export default function Home() {
       {/* Intro */}
       <section className="mb-16 animate-slide-up">
         <h1 className="text-[32px] font-bold tracking-tight mb-2">Keugene Lee</h1>
-        <p className="text-[16px] text-text-muted mb-6">
+        <p className="text-[16px] text-text-muted mb-2">
           Software engineer building AI-powered products.
+        </p>
+        <p className="text-[13px] text-text-muted mb-6">
+          Open for freelance &amp; contract work — reach out below.
         </p>
         <div className="flex items-center gap-4">
           <EmailReveal email="keugenelee11@gmail.com" />
