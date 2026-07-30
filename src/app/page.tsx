@@ -24,7 +24,7 @@ const projects = [
     urlLabel: "wingmate.live",
     github: "https://github.com/Keugene11/Wingmate",
     mobile: true,
-    demoHeight: 720,
+    demoHeight: 900,
     demos: [
       { label: "Main App", url: "https://wingmate.live" },
       { label: "Onboarding", url: "https://wingmate.live/onboarding" },
