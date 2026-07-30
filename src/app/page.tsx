@@ -26,7 +26,8 @@ const projects = [
     mobile: true,
     demoHeight: 900,
     demos: [
-      { label: "Try Demo", url: "https://wingmate.live/onboarding" },
+      { label: "Main App", url: "https://wingmate.live/demo" },
+      { label: "Onboarding", url: "https://wingmate.live/onboarding" },
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
     bullets: [
@@ -56,7 +57,6 @@ const projects = [
     url: "https://stonyloop.com",
     urlLabel: "stonyloop.com",
     github: "https://github.com/Keugene11/stonyloop",
-    demos: [{ label: "Try Demo", url: "https://stonyloop.com" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Google OAuth"],
     bullets: [
       "The Facebook for Stony Brook University — a social network where verified @stonybrook.edu students find classmates, connect by dorm, and stay in the loop, with 50+ registered users",
@@ -98,7 +98,6 @@ const projects = [
     url: "https://sbudate.vercel.app",
     urlLabel: "sbudate.vercel.app",
     github: "https://github.com/Keugene11/sbudate",
-    demos: [{ label: "Try Demo", url: "https://sbudate.vercel.app" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Capacitor", "Google OAuth"],
     bullets: [
       "Dating app built exclusively for Stony Brook University students — Hinge-style profile discovery with photos, prompts, and a mutual-like matching system",
@@ -112,7 +111,6 @@ const projects = [
     url: "https://ardsleypost.vercel.app",
     urlLabel: "ardsleypost.vercel.app",
     github: "https://github.com/Keugene11/ardsleypost",
-    demos: [{ label: "Try Demo", url: "https://ardsleypost.vercel.app" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Stripe", "Tailwind CSS", "Capacitor", "Nodemailer"],
     bullets: [
       "Community social network for Ardsley students, parents, and alumni — combining a news feed with a local services marketplace",
