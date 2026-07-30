@@ -64,6 +64,7 @@ export default function LiveDemo({
           className="h-full border-0 block"
           style={{ width: mobile ? MOBILE_W : "100%" }}
           title={demos[active].label}
+          allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera"
         />
 
         {/* Click-to-activate overlay */}
