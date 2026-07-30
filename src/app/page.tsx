@@ -9,6 +9,8 @@ const projects = [
     urlLabel: "aicoach-ruddy.vercel.app",
     github: "https://github.com/Keugene11/ai_coach",
     white: true,
+    mobile: true,
+    demoHeight: 680,
     demos: [{ label: "Try Demo", url: "https://aicoach-ruddy.vercel.app" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Tailwind CSS"],
     bullets: [
@@ -22,6 +24,8 @@ const projects = [
     url: "https://wingmate.live",
     urlLabel: "wingmate.live",
     github: "https://github.com/Keugene11/Wingmate",
+    mobile: true,
+    demoHeight: 720,
     demos: [
       { label: "Main App", url: "https://wingmate.live" },
       { label: "Onboarding", url: "https://wingmate.live/onboarding" },
@@ -240,7 +244,13 @@ export default function Home() {
               </div>
 
               {/* Live demo embed */}
-              {project.demos && <LiveDemo demos={project.demos} />}
+              {project.demos && (
+                <LiveDemo
+                  demos={project.demos}
+                  mobile={"mobile" in project ? project.mobile : false}
+                  height={"demoHeight" in project ? project.demoHeight : 500}
+                />
+              )}
             </div>
           ))}
         </div>

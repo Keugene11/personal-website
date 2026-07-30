@@ -4,14 +4,24 @@ import { useState } from "react";
 
 type Demo = { label: string; url: string };
 
-export default function LiveDemo({ demos, height = 500 }: { demos: Demo[]; height?: number }) {
+export default function LiveDemo({
+  demos,
+  height = 500,
+  mobile = false,
+}: {
+  demos: Demo[];
+  height?: number;
+  mobile?: boolean;
+}) {
   const [active, setActive] = useState(0);
   const [interactive, setInteractive] = useState(false);
 
+  const MOBILE_W = 390;
+
   return (
-    <div className="mt-5 rounded-xl overflow-hidden border border-border shadow-sm">
-      {/* Browser chrome bar */}
-      <div className="flex items-center gap-3 px-3 h-9 bg-[#f2f2f2] border-b border-border flex-shrink-0">
+    <div className="mt-5 rounded-xl overflow-hidden border border-border shadow-sm bg-[#f2f2f2]">
+      {/* Browser chrome */}
+      <div className="flex items-center gap-3 px-3 h-9 border-b border-border flex-shrink-0">
         <div className="flex gap-1.5 flex-shrink-0">
           <div className="w-[11px] h-[11px] rounded-full bg-[#ff5f57]" />
           <div className="w-[11px] h-[11px] rounded-full bg-[#febc2e]" />
@@ -44,14 +54,19 @@ export default function LiveDemo({ demos, height = 500 }: { demos: Demo[]; heigh
       </div>
 
       {/* iframe area */}
-      <div className="relative bg-white" style={{ height }}>
+      <div
+        className="relative bg-white flex justify-center"
+        style={{ height }}
+      >
         <iframe
           key={demos[active].url}
           src={demos[active].url}
-          className="w-full h-full border-0"
+          className="h-full border-0 block"
+          style={{ width: mobile ? MOBILE_W : "100%" }}
           title={demos[active].label}
         />
-        {/* Click-to-activate overlay prevents scroll-hijack while browsing */}
+
+        {/* Click-to-activate overlay */}
         {!interactive && (
           <div
             onClick={() => setInteractive(true)}
