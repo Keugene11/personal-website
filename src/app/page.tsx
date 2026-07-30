@@ -4,6 +4,20 @@ import DemoButton from "@/components/DemoButton";
 
 const projects = [
   {
+    name: "AI Coach",
+    url: "https://ai-coach-placeholder.vercel.app",
+    urlLabel: "ai-coach.vercel.app",
+    github: "https://github.com/Keugene11/ai_coach",
+    white: true,
+    demos: [{ label: "Try Demo", url: "https://ai-coach-placeholder.vercel.app" }],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Tailwind CSS"],
+    bullets: [
+      "Personal accountability coach that knows your goals and daily check-ins — pushes back on excuses, asks sharp follow-up questions, and gives unconventional advice, not generic self-help",
+      "Streams responses in real time with full conversation memory and web search for live research",
+      "Goals page to track active targets with deadlines, and daily check-ins to log what you accomplished",
+    ],
+  },
+  {
     name: "Wingmate",
     url: "https://wingmate.live",
     urlLabel: "wingmate.live",
@@ -165,7 +179,10 @@ export default function Home() {
         </h2>
         <div className="space-y-14 stagger">
           {projects.map((project) => (
-            <div key={project.name}>
+            <div
+              key={project.name}
+              className={project.white ? "bg-white border border-border rounded-2xl p-5 -mx-5" : ""}
+            >
               <div className="flex items-baseline justify-between mb-1 gap-3">
                 <a
                   href={project.url}
