@@ -26,8 +26,7 @@ const projects = [
     mobile: true,
     demoHeight: 900,
     demos: [
-      { label: "Main App", url: "https://wingmate.live" },
-      { label: "Onboarding", url: "https://wingmate.live/onboarding" },
+      { label: "Try Demo", url: "https://wingmate.live/onboarding" },
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
     bullets: [
