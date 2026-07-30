@@ -1,6 +1,6 @@
 import { Github, Linkedin, ExternalLink, Download } from "lucide-react";
 import EmailReveal from "@/components/EmailReveal";
-import DemoButton from "@/components/DemoButton";
+import LiveDemo from "@/components/LiveDemo";
 
 const projects = [
   {
@@ -239,8 +239,8 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Demo buttons */}
-              {project.demos && <DemoButton demos={project.demos} />}
+              {/* Live demo embed */}
+              {project.demos && <LiveDemo demos={project.demos} />}
             </div>
           ))}
         </div>
