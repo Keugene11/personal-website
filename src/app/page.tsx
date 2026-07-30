@@ -1,5 +1,6 @@
 import { Github, Linkedin, ExternalLink, Download } from "lucide-react";
 import EmailReveal from "@/components/EmailReveal";
+import DemoButton from "@/components/DemoButton";
 
 const projects = [
   {
@@ -7,6 +8,10 @@ const projects = [
     url: "https://wingmate.live",
     urlLabel: "wingmate.live",
     github: "https://github.com/Keugene11/Wingmate",
+    demos: [
+      { label: "Main App", url: "https://wingmate.live" },
+      { label: "Onboarding", url: "https://wingmate.live/onboarding" },
+    ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
     bullets: [
       "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play with $200+ in subscription revenue",
@@ -21,6 +26,7 @@ const projects = [
     url: "https://soundsense.vercel.app",
     urlLabel: "soundsense.vercel.app",
     github: "https://github.com/Keugene11/SoundSense",
+    demos: [{ label: "Try Demo", url: "https://soundsense.vercel.app" }],
     stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "YouTube Data API", "Last.fm API"],
     bullets: [
       "AI music discovery app — enter a song you love and Claude builds a playlist of tracks you'll actually want to hear, each with an explanation of why",
@@ -34,6 +40,7 @@ const projects = [
     url: "https://stonyloop.com",
     urlLabel: "stonyloop.com",
     github: "https://github.com/Keugene11/stonyloop",
+    demos: [{ label: "Try Demo", url: "https://stonyloop.com" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Google OAuth"],
     bullets: [
       "The Facebook for Stony Brook University — a social network where verified @stonybrook.edu students find classmates, connect by dorm, and stay in the loop, with 50+ registered users",
@@ -47,6 +54,7 @@ const projects = [
     url: "https://getdaily.live",
     urlLabel: "getdaily.live",
     github: "https://github.com/Keugene11/daily",
+    demos: [{ label: "Try Demo", url: "https://getdaily.live" }],
     stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Stripe", "Google Places API"],
     bullets: [
       "AI-powered day planner that turns a city and budget into a complete itinerary, pulling live data from Google Places, weather, transit, events, and more",
@@ -60,6 +68,7 @@ const projects = [
     url: "https://keugene11.github.io/benefits-finder/",
     urlLabel: "keugene11.github.io/benefits-finder",
     github: "https://github.com/Keugene11/benefits-finder",
+    demos: [{ label: "Try Demo", url: "https://keugene11.github.io/benefits-finder/" }],
     stack: ["React", "JavaScript", "GitHub Pages"],
     bullets: [
       "Interactive tool that helps users discover government assistance programs they qualify for",
@@ -73,6 +82,7 @@ const projects = [
     url: "https://sbudate.vercel.app",
     urlLabel: "sbudate.vercel.app",
     github: "https://github.com/Keugene11/sbudate",
+    demos: [{ label: "Try Demo", url: "https://sbudate.vercel.app" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Tailwind CSS", "Capacitor", "Google OAuth"],
     bullets: [
       "Dating app built exclusively for Stony Brook University students — Hinge-style profile discovery with photos, prompts, and a mutual-like matching system",
@@ -86,6 +96,7 @@ const projects = [
     url: "https://ardsleypost.vercel.app",
     urlLabel: "ardsleypost.vercel.app",
     github: "https://github.com/Keugene11/ardsleypost",
+    demos: [{ label: "Try Demo", url: "https://ardsleypost.vercel.app" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Stripe", "Tailwind CSS", "Capacitor", "Nodemailer"],
     bullets: [
       "Community social network for Ardsley students, parents, and alumni — combining a news feed with a local services marketplace",
@@ -210,6 +221,9 @@ export default function Home() {
                   </span>
                 ))}
               </div>
+
+              {/* Demo buttons */}
+              {project.demos && <DemoButton demos={project.demos} />}
             </div>
           ))}
         </div>
