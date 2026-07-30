@@ -10,7 +10,7 @@ const projects = [
     github: "https://github.com/Keugene11/ai_coach",
     white: true,
     demoHeight: 600,
-    demos: [{ label: "Try Demo", url: "https://aicoach-ruddy.vercel.app" }],
+    demos: [{ label: "Try Demo", url: "https://aicoach-ruddy.vercel.app/demo" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Tailwind CSS"],
     bullets: [
       "Personal accountability coach that knows your goals and daily check-ins — pushes back on excuses, asks sharp follow-up questions, and gives unconventional advice, not generic self-help",
