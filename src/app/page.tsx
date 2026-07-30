@@ -5,11 +5,11 @@ import DemoButton from "@/components/DemoButton";
 const projects = [
   {
     name: "AI Coach",
-    url: "https://ai-coach-placeholder.vercel.app",
-    urlLabel: "ai-coach.vercel.app",
+    url: "https://aicoach-ruddy.vercel.app",
+    urlLabel: "aicoach-ruddy.vercel.app",
     github: "https://github.com/Keugene11/ai_coach",
     white: true,
-    demos: [{ label: "Try Demo", url: "https://ai-coach-placeholder.vercel.app" }],
+    demos: [{ label: "Try Demo", url: "https://aicoach-ruddy.vercel.app" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Tailwind CSS"],
     bullets: [
       "Personal accountability coach that knows your goals and daily check-ins — pushes back on excuses, asks sharp follow-up questions, and gives unconventional advice, not generic self-help",
