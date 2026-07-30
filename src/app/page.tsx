@@ -9,8 +9,7 @@ const projects = [
     urlLabel: "aicoach-ruddy.vercel.app",
     github: "https://github.com/Keugene11/ai_coach",
     white: true,
-    mobile: true,
-    demoHeight: 680,
+    demoHeight: 600,
     demos: [{ label: "Try Demo", url: "https://aicoach-ruddy.vercel.app" }],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Tailwind CSS"],
     bullets: [
