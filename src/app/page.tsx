@@ -25,6 +25,10 @@ const projects = [
     github: "https://github.com/Keugene11/Wingmate",
     mobile: true,
     demoHeight: 900,
+    storeLinks: [
+      { label: "App Store", url: "https://apps.apple.com/app/id6761027246" },
+      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.approachai.twa" },
+    ],
     demos: [
       { label: "Main App", url: "https://wingmate.live/demo" },
       { label: "Onboarding", url: "https://wingmate.live/onboarding" },
@@ -212,6 +216,24 @@ export default function Home() {
                   </span>
                 ))}
               </div>
+
+              {/* Store links */}
+              {"storeLinks" in project && project.storeLinks && (
+                <div className="flex gap-2 mt-3">
+                  {project.storeLinks.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="press flex items-center gap-1.5 text-[12px] text-text-muted bg-bg-input border border-border px-3 py-1.5 rounded-full hover:text-text transition-colors"
+                    >
+                      <ExternalLink size={11} strokeWidth={2} />
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
 
               {/* Live demo embed */}
               {project.demos && (
