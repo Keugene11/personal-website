@@ -38,7 +38,7 @@ export default function LiveDemo({
             {demos.map((demo, i) => (
               <button
                 key={demo.url}
-                onClick={() => { setActive(i); setInteractive(false); }}
+                onClick={() => setActive(i)}
                 className={`press text-[11px] px-3 py-1 rounded-md transition-colors ${
                   active === i
                     ? "bg-white text-text shadow-sm border border-border"
