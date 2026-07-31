@@ -4,6 +4,9 @@ import { useState } from "react";
 
 type Demo = { label: string; url: string };
 
+const DESKTOP_SCALE = 0.7;
+const MOBILE_W = 390;
+
 export default function LiveDemo({
   demos,
   height = 500,
@@ -14,8 +17,6 @@ export default function LiveDemo({
   mobile?: boolean;
 }) {
   const [active, setActive] = useState(0);
-
-  const MOBILE_W = 390;
 
   return (
     <div className="mt-5 rounded-xl overflow-hidden border border-border shadow-sm bg-white">
@@ -54,14 +55,23 @@ export default function LiveDemo({
 
       {/* iframe area */}
       <div
-        className="relative bg-white flex justify-center"
+        className="relative bg-white flex justify-center overflow-hidden"
         style={{ height }}
       >
         <iframe
           key={demos[active].url}
           src={demos[active].url}
-          className="h-full border-0 block"
-          style={{ width: mobile ? MOBILE_W : "100%" }}
+          className="border-0 block flex-shrink-0"
+          style={
+            mobile
+              ? { width: MOBILE_W, height: "100%" }
+              : {
+                  width: `${100 / DESKTOP_SCALE}%`,
+                  height: `${height / DESKTOP_SCALE}px`,
+                  transform: `scale(${DESKTOP_SCALE})`,
+                  transformOrigin: "top left",
+                }
+          }
           title={demos[active].label}
           allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera"
         />
