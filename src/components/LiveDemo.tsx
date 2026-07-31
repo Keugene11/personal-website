@@ -54,7 +54,7 @@ export default function LiveDemo({
 
       {/* iframe area */}
       <div
-        className="relative bg-white flex justify-center"
+        className="relative bg-[#f2f2f2] flex justify-center"
         style={{ height }}
       >
         <iframe
