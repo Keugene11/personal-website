@@ -18,9 +18,9 @@ export default function LiveDemo({
   const MOBILE_W = 390;
 
   return (
-    <div className="mt-5 rounded-xl overflow-hidden border border-border shadow-sm bg-[#f2f2f2]">
+    <div className="mt-5 rounded-xl overflow-hidden border border-border shadow-sm bg-white">
       {/* Browser chrome */}
-      <div className="flex items-center gap-3 px-3 h-9 border-b border-border flex-shrink-0">
+      <div className="flex items-center gap-3 px-3 h-9 border-b border-border flex-shrink-0 bg-[#f2f2f2]">
         <div className="flex gap-1.5 flex-shrink-0">
           <div className="w-[11px] h-[11px] rounded-full bg-[#ff5f57]" />
           <div className="w-[11px] h-[11px] rounded-full bg-[#febc2e]" />
@@ -54,7 +54,7 @@ export default function LiveDemo({
 
       {/* iframe area */}
       <div
-        className="relative bg-[#f2f2f2] flex justify-center"
+        className="relative bg-white flex justify-center"
         style={{ height }}
       >
         <iframe
