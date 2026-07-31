@@ -74,6 +74,7 @@ const projects = [
     url: "https://getdaily.live",
     urlLabel: "getdaily.live",
     github: "https://github.com/Keugene11/daily",
+    demoHeight: 700,
     demos: [{ label: "Try Demo", url: "https://getdaily.live" }],
     stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Stripe", "Google Places API"],
     bullets: [
