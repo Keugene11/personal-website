@@ -4,18 +4,17 @@ import LiveDemo from "@/components/LiveDemo";
 
 const projects = [
   {
-    name: "AI Coach",
-    url: "https://aicoach-ruddy.vercel.app",
-    urlLabel: "aicoach-ruddy.vercel.app",
-    github: "https://github.com/Keugene11/ai_coach",
-    white: true,
-    demoHeight: 600,
-    demos: [{ label: "Try Demo", url: "https://aicoach-ruddy.vercel.app/demo" }],
-    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Tailwind CSS"],
+    name: "Prox Challenge",
+    url: "https://prox-challenge-sooty.vercel.app",
+    urlLabel: "prox-challenge-sooty.vercel.app",
+    github: "https://github.com/Keugene11/prox-challenge",
+    demos: [{ label: "Try Demo", url: "https://prox-challenge-sooty.vercel.app" }],
+    stack: ["Next.js 16", "TypeScript", "Claude API", "Tailwind CSS", "pdfjs-dist", "Vercel"],
     bullets: [
-      "Personal accountability coach that knows your goals and daily check-ins — pushes back on excuses, asks sharp follow-up questions, and gives unconventional advice, not generic self-help",
-      "Streams responses in real time with full conversation memory and web search for live research",
-      "Goals page to track active targets with deadlines, and daily check-ins to log what you accomplished",
+      "AI support agent for the Vulcan OmniPro 220 industrial welding machine — turns a 48-page manual into an expert you can ask anything, built for Prox Technologies",
+      "Indexes the manual offline with Claude Sonnet vision: each page is rendered, captioned, and stored as a pre-built knowledge base — 90 seconds from clone to first answer",
+      "Surfaces relevant manual diagrams and schematics alongside answers — duty cycles, polarity setups, wire feed troubleshooting, and weld diagnosis",
+      "Hand-rolled tool loop on Next.js App Router to stay within Vercel's 250MB serverless limit while maintaining full streaming",
     ],
   },
   {
@@ -40,6 +39,21 @@ const projects = [
       "RevenueCat handles iOS in-app purchases and Stripe handles web/Android subscriptions — webhook-driven entitlement sync, past-due billing recovery, and a $9.99/mo or $29.99/yr Pro paywall",
       "Community feed of anonymized field reports with upvotes and comments, plus a Reddit-style board to vote on what gets built next",
       "Owned the release pipeline end-to-end: Google OAuth + Apple Sign-In, Fastlane + GitHub Actions for Play Store uploads, App Store Connect API automation for iOS submission, and PostHog funnel analytics — one TypeScript codebase wrapped with Capacitor for iOS, Android, and web",
+    ],
+  },
+  {
+    name: "AI Coach",
+    url: "https://aicoach-ruddy.vercel.app",
+    urlLabel: "aicoach-ruddy.vercel.app",
+    github: "https://github.com/Keugene11/ai_coach",
+    white: true,
+    demoHeight: 600,
+    demos: [{ label: "Try Demo", url: "https://aicoach-ruddy.vercel.app/demo" }],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Tailwind CSS"],
+    bullets: [
+      "Personal accountability coach that knows your goals and daily check-ins — pushes back on excuses, asks sharp follow-up questions, and gives unconventional advice, not generic self-help",
+      "Streams responses in real time with full conversation memory and web search for live research",
+      "Goals page to track active targets with deadlines, and daily check-ins to log what you accomplished",
     ],
   },
   {
@@ -82,20 +96,6 @@ const projects = [
       "Backend calls every relevant tool in parallel, then Claude Haiku synthesizes the results into real venues with prices, clickable Google Maps links, and an interactive map",
       "Watch the plan build live via Server-Sent Events, with a nightlife mode for evening plans and weather-based outfit suggestions",
       "Monetized with Stripe subscriptions ($4.99/month or $39.99/year) and Supabase auth",
-    ],
-  },
-  {
-    name: "Prox Challenge",
-    url: "https://prox-challenge-sooty.vercel.app",
-    urlLabel: "prox-challenge-sooty.vercel.app",
-    github: "https://github.com/Keugene11/prox-challenge",
-    demos: [{ label: "Try Demo", url: "https://prox-challenge-sooty.vercel.app" }],
-    stack: ["Next.js 16", "TypeScript", "Claude API", "Tailwind CSS", "pdfjs-dist", "Vercel"],
-    bullets: [
-      "AI support agent for the Vulcan OmniPro 220 industrial welding machine — turns a 48-page manual into an expert you can ask anything, built for Prox Technologies",
-      "Indexes the manual offline with Claude Sonnet vision: each page is rendered, captioned, and stored as a pre-built knowledge base — 90 seconds from clone to first answer",
-      "Surfaces relevant manual diagrams and schematics alongside answers — duty cycles, polarity setups, wire feed troubleshooting, and weld diagnosis",
-      "Hand-rolled tool loop on Next.js App Router to stay within Vercel's 250MB serverless limit while maintaining full streaming",
     ],
   },
 ];
