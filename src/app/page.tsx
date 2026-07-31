@@ -29,8 +29,8 @@ const projects = [
       { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.approachai.twa" },
     ],
     demos: [
-      { label: "Main App", url: "https://wingmate.live/demo" },
       { label: "Onboarding", url: "https://wingmate.live/onboarding" },
+      { label: "Main App", url: "https://wingmate.live/demo" },
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
     bullets: [
