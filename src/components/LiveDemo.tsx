@@ -14,7 +14,6 @@ export default function LiveDemo({
   mobile?: boolean;
 }) {
   const [active, setActive] = useState(0);
-  const [interactive, setInteractive] = useState(false);
 
   const MOBILE_W = 390;
 
@@ -66,28 +65,6 @@ export default function LiveDemo({
           title={demos[active].label}
           allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera"
         />
-
-        {/* Click-to-activate overlay */}
-        {!interactive && (
-          <div
-            onClick={() => setInteractive(true)}
-            className="absolute inset-0 cursor-pointer group"
-          >
-            <div className="absolute inset-x-0 bottom-4 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-              <span className="text-[12px] text-text-muted bg-white/95 rounded-full px-4 py-2 border border-border shadow-sm">
-                Click to interact
-              </span>
-            </div>
-          </div>
-        )}
-        {interactive && (
-          <button
-            onClick={() => setInteractive(false)}
-            className="press absolute top-2 right-2 text-[11px] text-text-muted bg-white/95 rounded-full px-3 py-1.5 border border-border shadow-sm hover:bg-white transition-colors z-10"
-          >
-            Done
-          </button>
-        )}
       </div>
     </div>
   );
