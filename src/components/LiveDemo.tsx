@@ -55,7 +55,7 @@ export default function LiveDemo({
 
       {/* iframe area */}
       <div
-        className="relative bg-white flex justify-center overflow-hidden"
+        className={`relative bg-white overflow-hidden ${mobile ? "flex justify-center" : ""}`}
         style={{ height }}
       >
         <iframe
@@ -66,6 +66,9 @@ export default function LiveDemo({
             mobile
               ? { width: MOBILE_W, height: "100%" }
               : {
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
                   width: `${100 / DESKTOP_SCALE}%`,
                   height: `${height / DESKTOP_SCALE}px`,
                   transform: `scale(${DESKTOP_SCALE})`,
