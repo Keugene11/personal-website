@@ -80,7 +80,7 @@ const projects = [
       "AI-powered day planner that turns a city and budget into a complete itinerary, pulling live data from Google Places, weather, transit, events, and more",
       "Backend calls every relevant tool in parallel, then Claude Haiku synthesizes the results into real venues with prices, clickable Google Maps links, and an interactive map",
       "Watch the plan build live via Server-Sent Events, with a nightlife mode for evening plans and weather-based outfit suggestions",
-      "Monetized with Stripe subscriptions ($4.99/month or $39.99/year) and Supabase auth with cloud-synced plan history",
+      "Monetized with Stripe subscriptions ($4.99/month or $39.99/year) and Supabase auth",
     ],
   },
   {
@@ -88,6 +88,7 @@ const projects = [
     url: "https://prox-challenge-sooty.vercel.app",
     urlLabel: "prox-challenge-sooty.vercel.app",
     github: "https://github.com/Keugene11/prox-challenge",
+    demos: [{ label: "Try Demo", url: "https://prox-challenge-sooty.vercel.app" }],
     stack: ["Next.js 16", "TypeScript", "Claude API", "Tailwind CSS", "pdfjs-dist", "Vercel"],
     bullets: [
       "AI support agent for the Vulcan OmniPro 220 industrial welding machine — turns a 48-page manual into an expert you can ask anything, built for Prox Technologies",
