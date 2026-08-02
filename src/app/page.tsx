@@ -23,7 +23,7 @@ const projects = [
     urlLabel: "wingmate.live",
     github: "https://github.com/Keugene11/Wingmate",
     mobile: true,
-    demoHeight: 900,
+    demoHeight: 650,
     storeLinks: [
       { label: "App Store", url: "https://apps.apple.com/app/id6761027246" },
       { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.approachai.twa" },
@@ -34,7 +34,7 @@ const projects = [
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
     bullets: [
-      "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play with $200+ in subscription revenue",
+      "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play with $250+ in subscription revenue",
       "Roster logs every approach with outcome, contact, and flake/ghost status, then surfaces insights: conversion funnels, flake-rate by attractiveness, streaks, and a world map of where people are from",
       "RevenueCat handles iOS in-app purchases and Stripe handles web/Android subscriptions — webhook-driven entitlement sync, past-due billing recovery, and a $9.99/mo or $29.99/yr Pro paywall",
       "Community feed of anonymized field reports with upvotes and comments, plus a Reddit-style board to vote on what gets built next",
