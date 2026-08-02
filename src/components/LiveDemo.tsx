@@ -5,6 +5,7 @@ import { useState } from "react";
 type Demo = { label: string; url: string };
 
 const DESKTOP_SCALE = 0.7;
+const MOBILE_SCALE = 0.78;
 const MOBILE_W = 390;
 
 export default function LiveDemo({
@@ -64,7 +65,12 @@ export default function LiveDemo({
           className="border-0 block flex-shrink-0"
           style={
             mobile
-              ? { width: MOBILE_W, height: "100%" }
+              ? {
+                  width: MOBILE_W,
+                  height: height / MOBILE_SCALE,
+                  transform: `scale(${MOBILE_SCALE})`,
+                  transformOrigin: "top center",
+                }
               : {
                   position: "absolute",
                   top: 0,
