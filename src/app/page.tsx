@@ -75,12 +75,12 @@ const projects = [
     github: "https://github.com/Keugene11/daily",
     demoHeight: 700,
     demos: [{ label: "Try Demo", url: "https://getdaily.live" }],
-    stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Stripe", "Google Places API"],
+    stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Google Places API"],
     bullets: [
       "AI-powered day planner that turns a city and budget into a complete itinerary, pulling live data from Google Places, weather, transit, events, and more",
       "Backend calls every relevant tool in parallel, then Claude Haiku synthesizes the results into real venues with prices, clickable Google Maps links, and an interactive map",
       "Watch the plan build live via Server-Sent Events, with a nightlife mode for evening plans and weather-based outfit suggestions",
-      "Monetized with Stripe subscriptions ($4.99/month or $39.99/year) and Supabase auth",
+      "Supabase auth with cloud-synced plan history",
     ],
   },
 ];
