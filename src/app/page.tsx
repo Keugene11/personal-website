@@ -46,6 +46,7 @@ const projects = [
     url: "https://soundsense.vercel.app",
     urlLabel: "soundsense.vercel.app",
     github: "https://github.com/Keugene11/SoundSense",
+    demoHeight: 420,
     demos: [{ label: "Try Demo", url: "https://soundsense.vercel.app" }],
     stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "YouTube Data API", "Last.fm API"],
     bullets: [
@@ -73,7 +74,7 @@ const projects = [
     url: "https://getdaily.live",
     urlLabel: "getdaily.live",
     github: "https://github.com/Keugene11/daily",
-    demoHeight: 700,
+    demoHeight: 550,
     demos: [{ label: "Try Demo", url: "https://getdaily.live" }],
     stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Google Places API"],
     bullets: [
