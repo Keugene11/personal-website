@@ -7,7 +7,7 @@ const projects = [
     name: "Manual Support Agent",
     url: "https://prox-challenge-sooty.vercel.app",
     urlLabel: "prox-challenge-sooty.vercel.app",
-    github: "https://github.com/Keugene11/prox-challenge",
+    github: "https://github.com/Keugene11/manual-support-agent",
     demos: [{ label: "Try Demo", url: "https://prox-challenge-sooty.vercel.app" }],
     stack: ["Next.js 16", "TypeScript", "Claude API", "Tailwind CSS", "pdfjs-dist", "Vercel"],
     bullets: [
