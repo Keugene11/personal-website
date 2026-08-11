@@ -5,7 +5,10 @@ import { useState } from "react";
 type Demo = { label: string; url: string };
 
 const DESKTOP_SCALE = 0.7;
-const MOBILE_SCALE = 0.78;
+// Mobile demos are NOT scaled. A desktop site rendered at 1400px has to shrink
+// to fit this column, but a phone-width app already fits at 390px — and scaling
+// it resampled every glyph, which made headings and logos read noticeably
+// thicker and softer than the same screens in the real app.
 const MOBILE_W = 390;
 
 export default function LiveDemo({
@@ -65,12 +68,7 @@ export default function LiveDemo({
           className="border-0 block flex-shrink-0"
           style={
             mobile
-              ? {
-                  width: MOBILE_W,
-                  height: height / MOBILE_SCALE,
-                  transform: `scale(${MOBILE_SCALE})`,
-                  transformOrigin: "top center",
-                }
+              ? { width: MOBILE_W, height: "100%" }
               : {
                   position: "absolute",
                   top: 0,
