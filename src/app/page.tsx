@@ -8,8 +8,8 @@ const projects = [
     url: "https://wingmate.live",
     urlLabel: "wingmate.live",
     github: "https://github.com/Keugene11/Wingmate",
+    // No demoHeight: mobile demos are a fixed 390x844 phone (see LiveDemo).
     mobile: true,
-    demoHeight: 650,
     storeLinks: [
       { label: "App Store", url: "https://apps.apple.com/app/id6761027246" },
       { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.approachai.twa" },
