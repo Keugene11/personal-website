@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+/* DM Sans comes from next/font/google in app/layout.tsx, not an @import here.
+   An @import can't be discovered until this file has downloaded and parsed, so
+   the font started a full round trip late and the first paint showed the
+   fallback face — noticeably heavier and wider — before swapping. */
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', system-ui, sans-serif;
-  --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'Helvetica Neue', system-ui, sans-serif;
+  --font-display: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'Helvetica Neue', system-ui, sans-serif;
   --color-primary: #1a1a1a;
   --color-primary-dark: #000000;
   --color-accent: #1a1a1a;
