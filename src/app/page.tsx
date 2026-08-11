@@ -4,20 +4,6 @@ import LiveDemo from "@/components/LiveDemo";
 
 const projects = [
   {
-    name: "Manual Support Agent",
-    url: "https://prox-challenge-sooty.vercel.app",
-    urlLabel: "prox-challenge-sooty.vercel.app",
-    github: "https://github.com/Keugene11/manual-support-agent",
-    demos: [{ label: "Try Demo", url: "https://prox-challenge-sooty.vercel.app" }],
-    stack: ["Next.js 16", "TypeScript", "Claude API", "Tailwind CSS", "pdfjs-dist", "Vercel"],
-    bullets: [
-      "AI support agent for the Vulcan OmniPro 220 industrial welding machine — turns a 48-page manual into an expert you can ask anything",
-      "Indexes the manual offline with Claude Sonnet vision: each page is rendered, captioned, and stored as a pre-built knowledge base — 90 seconds from clone to first answer",
-      "Surfaces relevant manual diagrams and schematics alongside answers — duty cycles, polarity setups, wire feed troubleshooting, and weld diagnosis",
-      "Hand-rolled tool loop on Next.js App Router to stay within Vercel's 250MB serverless limit while maintaining full streaming",
-    ],
-  },
-  {
     name: "Wingmate",
     url: "https://wingmate.live",
     urlLabel: "wingmate.live",
@@ -29,8 +15,11 @@ const projects = [
       { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.approachai.twa" },
     ],
     demos: [
+      // The real shipped app, signed in as a demo account — not a mockup. This
+      // alias resolves the session from the Host header instead of a cookie,
+      // which is what makes it work inside a cross-origin iframe.
+      { label: "Main App", url: "https://wingmate-demo.vercel.app" },
       { label: "Onboarding", url: "https://wingmate.live/onboarding" },
-      { label: "Main App", url: "https://wingmate.live/demo" },
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Tailwind CSS"],
     bullets: [
@@ -39,6 +28,20 @@ const projects = [
       "RevenueCat handles iOS in-app purchases and Stripe handles web/Android subscriptions — webhook-driven entitlement sync, past-due billing recovery, and a $9.99/mo or $29.99/yr Pro paywall",
       "Community feed of anonymized field reports with upvotes and comments, plus a Reddit-style board to vote on what gets built next",
       "Owned the release pipeline end-to-end: Google OAuth + Apple Sign-In, Fastlane + GitHub Actions for Play Store uploads, App Store Connect API automation for iOS submission, and PostHog funnel analytics — one TypeScript codebase wrapped with Capacitor for iOS, Android, and web",
+    ],
+  },
+  {
+    name: "Manual Support Agent",
+    url: "https://prox-challenge-sooty.vercel.app",
+    urlLabel: "prox-challenge-sooty.vercel.app",
+    github: "https://github.com/Keugene11/manual-support-agent",
+    demos: [{ label: "Try Demo", url: "https://prox-challenge-sooty.vercel.app" }],
+    stack: ["Next.js 16", "TypeScript", "Claude API", "Tailwind CSS", "pdfjs-dist", "Vercel"],
+    bullets: [
+      "AI support agent for the Vulcan OmniPro 220 industrial welding machine — turns a 48-page manual into an expert you can ask anything",
+      "Indexes the manual offline with Claude Sonnet vision: each page is rendered, captioned, and stored as a pre-built knowledge base — 90 seconds from clone to first answer",
+      "Surfaces relevant manual diagrams and schematics alongside answers — duty cycles, polarity setups, wire feed troubleshooting, and weld diagnosis",
+      "Hand-rolled tool loop on Next.js App Router to stay within Vercel's 250MB serverless limit while maintaining full streaming",
     ],
   },
   {
