@@ -25,64 +25,63 @@ export default function LiveDemo({
 }) {
   const [active, setActive] = useState(0);
 
-  const iframe = (
+  const desktopIframe = (
     <iframe
       key={demos[active].url}
       src={demos[active].url}
       className="border-0 block flex-shrink-0"
-      style={
-        mobile
-          ? { width: PHONE_W, height: PHONE_H }
-          : {
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: `${100 / DESKTOP_SCALE}%`,
-              height: `${height / DESKTOP_SCALE}px`,
-              transform: `scale(${DESKTOP_SCALE})`,
-              transformOrigin: "top left",
-            }
-      }
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: `${100 / DESKTOP_SCALE}%`,
+        height: `${height / DESKTOP_SCALE}px`,
+        transform: `scale(${DESKTOP_SCALE})`,
+        transformOrigin: "top left",
+      }}
       title={demos[active].label}
       allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera"
     />
   );
 
-  const tabs =
-    demos.length === 1 ? null : (
-      <div className="flex gap-1">
-        {demos.map((demo, i) => (
-          <button
-            key={demo.url}
-            onClick={() => setActive(i)}
-            className={`press text-[11px] px-3 py-1 rounded-md transition-colors ${
-              active === i
-                ? "bg-white text-text shadow-sm border border-border"
-                : "text-text-muted hover:text-text"
-            }`}
-          >
-            {demo.label}
-          </button>
-        ))}
-      </div>
-    );
-
   // Mobile apps get a phone, not a browser window — traffic lights and an
   // address bar around a portrait app read as the wrong device entirely.
+  //
+  // Every demo gets its own phone, stacked and labelled, rather than hiding all
+  // but one behind a tab: a second screen worth showing shouldn't depend on
+  // someone noticing a switcher.
   if (mobile) {
     return (
-      <div className="mt-5 flex flex-col items-center gap-3">
-        {tabs}
-        <div
-          className="rounded-[44px] bg-[#1a1a1a] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)] overflow-hidden"
-          style={{
-            width: PHONE_W + BEZEL * 2,
-            height: PHONE_H + BEZEL * 2,
-            padding: BEZEL,
-          }}
-        >
-          <div className="rounded-[34px] overflow-hidden bg-white h-full">{iframe}</div>
-        </div>
+      <div className="mt-5 flex flex-col items-center gap-8">
+        {demos.map((demo, i) => (
+          <div key={demo.url} className="flex flex-col items-center gap-2.5">
+            <span className="text-[11px] uppercase tracking-widest text-text-muted font-medium">
+              {demo.label}
+            </span>
+            <div
+              className="rounded-[44px] bg-[#1a1a1a] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)] overflow-hidden"
+              style={{
+                width: PHONE_W + BEZEL * 2,
+                height: PHONE_H + BEZEL * 2,
+                padding: BEZEL,
+              }}
+            >
+              <div className="rounded-[34px] overflow-hidden bg-white h-full">
+                <iframe
+                  src={demo.url}
+                  className="border-0 block flex-shrink-0"
+                  style={{ width: PHONE_W, height: PHONE_H }}
+                  title={demo.label}
+                  // Only the first phone loads up front. The rest are a full
+                  // app each, and starting them all at once just makes the one
+                  // people actually look at slower to appear.
+                  loading={i === 0 ? "eager" : "lazy"}
+                  allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     );
   }
@@ -104,12 +103,26 @@ export default function LiveDemo({
             </span>
           </div>
         ) : (
-          tabs
+          <div className="flex gap-1">
+            {demos.map((demo, i) => (
+              <button
+                key={demo.url}
+                onClick={() => setActive(i)}
+                className={`press text-[11px] px-3 py-1 rounded-md transition-colors ${
+                  active === i
+                    ? "bg-white text-text shadow-sm border border-border"
+                    : "text-text-muted hover:text-text"
+                }`}
+              >
+                {demo.label}
+              </button>
+            ))}
+          </div>
         )}
       </div>
 
       <div className="relative bg-white overflow-hidden" style={{ height }}>
-        {iframe}
+        {desktopIframe}
       </div>
     </div>
   );
