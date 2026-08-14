@@ -19,7 +19,11 @@ const projects = [
       // alias resolves the session from the Host header instead of a cookie,
       // which is what makes it work inside a cross-origin iframe.
       { label: "Main App", url: "https://wingmate-demo.vercel.app" },
-      { label: "Onboarding", url: "https://wingmate.live/onboarding" },
+      // Same alias, for the same reason. Pointed at wingmate.live it was a dead
+      // end: no Host-header session, cookies dropped in a cross-origin iframe,
+      // so it rendered signed-out and sent visitors to "Create an account" —
+      // where Google and Apple both refuse to render sign-in inside a frame.
+      { label: "Onboarding", url: "https://wingmate-demo.vercel.app/onboarding" },
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "WidgetKit", "Firebase", "PostHog", "Tailwind CSS"],
     bullets: [
