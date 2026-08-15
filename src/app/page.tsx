@@ -27,12 +27,11 @@ const projects = [
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "WidgetKit", "Firebase", "PostHog", "Tailwind CSS"],
     bullets: [
-      "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play with 160+ users and $250+ in subscription revenue",
+      "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play, now free for everyone, with 160+ users and $250+ in subscription revenue from its paid run",
       "Roster logs every approach — outcome, contact, flake/ghost status — and, unusually, the ones you didn't make, with prompts on what stopped you. 130+ logged so far, feeding insights on conversion, flake-rate by attractiveness, streaks, and a world map of where people are from",
-      "Claude-powered coach for openers, texts, and shit-test handling — 1,700+ messages sent — metered by a credit system: 500 a month on Pro, with consumable top-up packs sold through both stores. Backed by a skill tree and long-form articles for people who'd rather read than ask",
-      "Find a Wingman pairs users by city with group chats and DMs, on top of a Twitter-style timeline of anonymized field reports and a board to vote on what gets built next",
-      "Native depth past the webview: a home-screen streak widget (WidgetKit on iOS, RemoteViews on Android), push through FCM and APNs with an in-app inbox, and on-device reminders that escalate over five days then stop",
-      "RevenueCat for iOS IAP, Stripe for web and Android — webhook-driven entitlement sync, trial-to-paid tracking, past-due recovery, and win-back offers on a $9.99/mo or $29.99/yr paywall. Release pipeline automated end to end: Fastlane + GitHub Actions to Play, one-click App Store Connect submission, PostHog funnels",
+      "Find a Wingman pairs users by city with group chats and DMs, on top of a Twitter-style timeline of anonymized field reports and a board to vote on what gets built next, plus a skill tree and long-form articles on the fundamentals",
+      "Native depth past the webview: a home-screen streak widget (WidgetKit on iOS, RemoteViews on Android) and push through FCM and APNs with an in-app inbox",
+      "Full billing stack shipped before the app went free — RevenueCat for iOS IAP, Stripe for web and Android, webhook-driven entitlement sync, trial-to-paid tracking, past-due recovery and win-back offers on a $9.99/mo or $29.99/yr paywall — all still intact behind a single flag. Release pipeline automated end to end: Fastlane + GitHub Actions to Play, one-click App Store Connect submission, PostHog funnels",
     ],
   },
   {

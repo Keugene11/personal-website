@@ -9,7 +9,7 @@ My personal portfolio website showcasing AI-powered products and social platform
 - **Daily** — AI-powered day planner generating personalized city itineraries from 15+ real-time APIs
 - **SoundSense** — AI music discovery app that finds verified song recommendations based on sonic qualities and mood
 - **Benefits Finder** — Interactive tool matching users to government assistance programs they qualify for
-- **Wingmate** — Mobile-first AI coaching app with real-time Claude Sonnet coaching, progress tracking, and community features
+- **Wingmate** — Mobile-first cold-approach tracker with stats, streaks, and community features, free on iOS and Android
 - **SBUdate** — Dating app for Stony Brook University students with Hinge-style matching and real-time messaging
 - **SBUpost** — Social network for SBU students to share posts, follow classmates, and discover people by major or courses
 - **Ardsleypost** — Community social network for Ardsley with a local services marketplace and Stripe payments
