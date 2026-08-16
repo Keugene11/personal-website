@@ -27,11 +27,11 @@ const projects = [
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "WidgetKit", "Firebase", "PostHog", "Tailwind CSS"],
     bullets: [
-      "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play, now free for everyone, with 160+ users and $250+ in subscription revenue from its paid run",
+      "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play, completely free with no paywall, with 160+ users and $250+ in revenue earned before it went free",
       "Roster logs every approach — outcome, contact, flake/ghost status — and, unusually, the ones you didn't make, with prompts on what stopped you. 130+ logged so far, feeding insights on conversion, flake-rate by attractiveness, streaks, and a world map of where people are from",
       "Find a Wingman pairs users by city with group chats and DMs, on top of a Twitter-style timeline of anonymized field reports and a board to vote on what gets built next, plus a skill tree and long-form articles on the fundamentals",
       "Native depth past the webview: a home-screen streak widget (WidgetKit on iOS, RemoteViews on Android) and push through FCM and APNs with an in-app inbox",
-      "Full billing stack shipped before the app went free — RevenueCat for iOS IAP, Stripe for web and Android, webhook-driven entitlement sync, trial-to-paid tracking, past-due recovery and win-back offers on a $9.99/mo or $29.99/yr paywall — all still intact behind a single flag. Release pipeline automated end to end: Fastlane + GitHub Actions to Play, one-click App Store Connect submission, PostHog funnels",
+      "Built the full billing stack during the app's paid run — RevenueCat for iOS IAP, Stripe for web and Android, webhook-driven entitlement sync, conversion tracking, past-due recovery and win-back offers — now switched off entirely, with every feature unlocked for everyone. Release pipeline automated end to end: Fastlane + GitHub Actions to Play, one-click App Store Connect submission, PostHog funnels",
     ],
   },
   {
