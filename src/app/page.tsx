@@ -25,12 +25,12 @@ const projects = [
       // where Google and Apple both refuse to render sign-in inside a frame.
       { label: "Onboarding", url: "https://wingmate-demo.vercel.app/onboarding" },
     ],
-    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "WidgetKit", "Firebase", "PostHog", "Tailwind CSS"],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Stripe", "RevenueCat", "Capacitor", "Firebase", "PostHog", "Tailwind CSS"],
     bullets: [
       "Mobile-first app that helps guys build the confidence to approach and talk to new people — live on the Apple App Store and Google Play, completely free with no paywall, with 160+ users and $250+ in revenue earned before it went free",
       "Roster logs every approach — outcome, contact, flake/ghost status — and, unusually, the ones you didn't make, with prompts on what stopped you. 130+ logged so far, feeding insights on conversion, flake-rate by attractiveness, streaks, and a world map of where people are from",
       "Find a Wingman pairs users by city with group chats and DMs, on top of a Twitter-style timeline of anonymized field reports and a board to vote on what gets built next, plus a skill tree and long-form articles on the fundamentals",
-      "Native depth past the webview: a home-screen streak widget (WidgetKit on iOS, RemoteViews on Android) and push through FCM and APNs with an in-app inbox",
+      "Native depth past the webview: a Capacitor shell shipping to both stores, push through FCM on Android and APNs on iOS with an in-app inbox, plus native photo handling and swipe navigation",
       "Built the full billing stack during the app's paid run — RevenueCat for iOS IAP, Stripe for web and Android, webhook-driven entitlement sync, conversion tracking, past-due recovery and win-back offers — now switched off entirely, with every feature unlocked for everyone. Release pipeline automated end to end: Fastlane + GitHub Actions to Play, one-click App Store Connect submission, PostHog funnels",
     ],
   },
