@@ -35,6 +35,22 @@ const projects = [
     ],
   },
   {
+    name: "Otto",
+    url: "https://cluely-delta.vercel.app",
+    urlLabel: "cluely-delta.vercel.app",
+    github: "https://github.com/Keugene11/cluely",
+    demoHeight: 560,
+    demos: [{ label: "Try Demo", url: "https://cluely-delta.vercel.app" }],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Electron", "Claude API", "Neon", "Whisper (transformers.js)", "Tailwind CSS", "electron-builder"],
+    bullets: [
+      "Always-on-top desktop assistant for Windows that can see your screen and use your computer — one hotkey reads whatever is in front of you and either answers it, walks you through it, or does it for you",
+      "No mode switch: Claude decides per message whether the reply is an answer, a step-by-step walkthrough, or launching an app, and all three land in the same thread — the user never picks a tool",
+      "Drives real input through a PowerShell host process — click, double-click, drag, scroll, typing, key combos, and restoring a minimized window — with a guiding cursor drawn on a full-screen click-through overlay so you can see what it is about to press. Every step declares what should be true on screen afterwards, gets re-checked against a fresh screenshot before the next one starts, and retries up to three times rather than claiming it worked",
+      "Push-to-talk transcription runs entirely on-device — Whisper through transformers.js, imported from a CDN at runtime so it needs no extra API key and adds nothing to the installer — and answers are spoken back through the Web Speech API",
+      "Desktop shell built on Electron with global hotkeys, a bar that resizes to hug its content and can be hidden from screen recording, and auto-updates via electron-updater. The UI is served from Vercel rather than bundled, so shipping a change never means shipping a new binary. Sessions end with a generated summary, key points, action items and a follow-up draft, stored in Neon behind JWT auth",
+    ],
+  },
+  {
     name: "Manual Support Agent",
     url: "https://prox-challenge-sooty.vercel.app",
     urlLabel: "prox-challenge-sooty.vercel.app",
