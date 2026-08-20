@@ -40,7 +40,14 @@ const projects = [
     urlLabel: "cluely-delta.vercel.app",
     github: "https://github.com/Keugene11/cluely",
     demoHeight: 560,
-    demos: [{ label: "Try Demo", url: "https://cluely-delta.vercel.app" }],
+    demos: [
+      // The real assistant, unauthenticated: type a question and Claude answers
+      // in the same panel the desktop app renders. "Share a window" hands it a
+      // screenshot, which is as close to the real screen-reading as a browser
+      // tab is allowed to get — the iframe carries display-capture for it.
+      { label: "Try Otto", url: "https://cluely-delta.vercel.app/demo" },
+      { label: "Landing", url: "https://cluely-delta.vercel.app" },
+    ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Electron", "Claude API", "Neon", "Whisper (transformers.js)", "Tailwind CSS", "electron-builder"],
     bullets: [
       "Always-on-top desktop assistant for Windows that can see your screen and use your computer — one hotkey reads whatever is in front of you and either answers it, walks you through it, or does it for you",

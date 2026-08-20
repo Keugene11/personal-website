@@ -40,7 +40,7 @@ export default function LiveDemo({
         transformOrigin: "top left",
       }}
       title={demos[active].label}
-      allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera"
+      allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera; display-capture"
     />
   );
 
@@ -76,7 +76,7 @@ export default function LiveDemo({
                   // app each, and starting them all at once just makes the one
                   // people actually look at slower to appear.
                   loading={i === 0 ? "eager" : "lazy"}
-                  allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera"
+                  allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera; display-capture"
                 />
               </div>
             </div>
