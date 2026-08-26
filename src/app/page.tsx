@@ -137,7 +137,8 @@ export default function Home() {
           Open for freelance &amp; contract work — reach out below.
         </p>
         <div className="flex items-center gap-4">
-          <EmailReveal email="keugenelee11@gmail.com" />
+          {/* base64 so the address never ships in plaintext — see EmailReveal */}
+          <EmailReveal encoded="a2V1Z2VuZWxlZTExQGdtYWlsLmNvbQ==" />
           <a
             href="https://github.com/Keugene11"
             target="_blank"
