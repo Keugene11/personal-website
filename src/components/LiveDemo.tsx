@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Demo = { label: string; url: string };
 
@@ -14,35 +14,135 @@ const PHONE_W = 390;
 const PHONE_H = 844;
 const BEZEL = 10;
 
+// How far ahead of the viewport a demo starts loading. Enough that it is
+// usually ready by the time it is actually on screen, small enough that
+// scrolling past a project doesn't boot it.
+const PRELOAD_MARGIN = "200px";
+
+/**
+ * Every demo on this page is an entire web app — its own framework, its own
+ * bundle, its own cold serverless start. Six of them booting at once is what
+ * made the first one anybody looks at take the better part of a minute:
+ * measured on a throttled connection (4 Mbps / 120 ms / 4x CPU), the Wingmate
+ * phone was usable at 33.9s with every frame loading, 11.5s with only itself.
+ *
+ * `loading="lazy"` does NOT solve this and was already tried. Chrome's lazy
+ * threshold is generous enough that a frame most of a screen below the fold
+ * loads immediately anyway — both Wingmate phones were requested within 15ms of
+ * each other. So the gate has to be explicit: no `src` at all until the frame
+ * is genuinely near the viewport.
+ *
+ * One-way latch. Once a demo has loaded it stays loaded — scrolling back up
+ * must never throw away a running app and cold-boot it again.
+ */
+function useInView<T extends HTMLElement>(eager = false) {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(eager);
+
+  useEffect(() => {
+    if (inView) return;
+    const el = ref.current;
+    if (!el) return;
+    // No observer (very old browser, or a crawler): load it rather than show a
+    // permanently empty box. Failing towards "works" is the right direction.
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInView(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: PRELOAD_MARGIN },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [inView]);
+
+  return [ref, inView] as const;
+}
+
+/** What sits in a frame's place until it is worth loading. */
+function Placeholder() {
+  return (
+    <div className="w-full h-full flex items-center justify-center bg-white">
+      <div className="w-5 h-5 border-2 border-border border-t-transparent rounded-full animate-spin" />
+    </div>
+  );
+}
+
+const IFRAME_ALLOW =
+  "autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera; display-capture";
+
+/** One phone in the stacked mobile layout, loaded when it comes into view. */
+function DemoPhone({ demo, eager }: { demo: Demo; eager: boolean }) {
+  const [ref, inView] = useInView<HTMLDivElement>(eager);
+
+  return (
+    <div className="flex flex-col items-center gap-2.5">
+      <span className="text-[11px] uppercase tracking-widest text-text-muted font-medium">
+        {demo.label}
+      </span>
+      <div
+        ref={ref}
+        className="rounded-[44px] bg-[#1a1a1a] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)] overflow-hidden"
+        style={{
+          width: PHONE_W + BEZEL * 2,
+          height: PHONE_H + BEZEL * 2,
+          padding: BEZEL,
+        }}
+      >
+        <div className="rounded-[34px] overflow-hidden bg-white h-full">
+          {inView ? (
+            <iframe
+              src={demo.url}
+              className="border-0 block flex-shrink-0"
+              style={{ width: PHONE_W, height: PHONE_H }}
+              title={demo.label}
+              allow={IFRAME_ALLOW}
+            />
+          ) : (
+            <Placeholder />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function LiveDemo({
   demos,
   height = 500,
   mobile = false,
+  priority = false,
 }: {
   demos: Demo[];
   height?: number;
   mobile?: boolean;
+  /**
+   * This demo is above the fold, so start it without waiting to be observed.
+   *
+   * The observer can only run after React has hydrated, and on a slow machine
+   * that is seconds — measured at ~3.5s of the first phone's wait on a 4x
+   * throttled CPU, spent doing nothing. Set on the FIRST project only: the
+   * point of the gate is that five other apps don't boot alongside it.
+   */
+  priority?: boolean;
 }) {
   const [active, setActive] = useState(0);
+  const [frameRef, framesInView] = useInView<HTMLDivElement>(priority);
+  // Which tabs have ever been opened. A tab that has loaded stays mounted and
+  // is merely hidden, so switching back to it is instant — this used to key the
+  // single iframe on the active url, which threw the running app away and cold
+  // -booted the next one on every click of the tab bar.
+  const [opened, setOpened] = useState<number[]>([0]);
 
-  const desktopIframe = (
-    <iframe
-      key={demos[active].url}
-      src={demos[active].url}
-      className="border-0 block flex-shrink-0"
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: `${100 / DESKTOP_SCALE}%`,
-        height: `${height / DESKTOP_SCALE}px`,
-        transform: `scale(${DESKTOP_SCALE})`,
-        transformOrigin: "top left",
-      }}
-      title={demos[active].label}
-      allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera; display-capture"
-    />
-  );
+  useEffect(() => {
+    setOpened((o) => (o.includes(active) ? o : [...o, active]));
+  }, [active]);
 
   // Mobile apps get a phone, not a browser window — traffic lights and an
   // address bar around a portrait app read as the wrong device entirely.
@@ -54,33 +154,7 @@ export default function LiveDemo({
     return (
       <div className="mt-5 flex flex-col items-center gap-8">
         {demos.map((demo, i) => (
-          <div key={demo.url} className="flex flex-col items-center gap-2.5">
-            <span className="text-[11px] uppercase tracking-widest text-text-muted font-medium">
-              {demo.label}
-            </span>
-            <div
-              className="rounded-[44px] bg-[#1a1a1a] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)] overflow-hidden"
-              style={{
-                width: PHONE_W + BEZEL * 2,
-                height: PHONE_H + BEZEL * 2,
-                padding: BEZEL,
-              }}
-            >
-              <div className="rounded-[34px] overflow-hidden bg-white h-full">
-                <iframe
-                  src={demo.url}
-                  className="border-0 block flex-shrink-0"
-                  style={{ width: PHONE_W, height: PHONE_H }}
-                  title={demo.label}
-                  // Only the first phone loads up front. The rest are a full
-                  // app each, and starting them all at once just makes the one
-                  // people actually look at slower to appear.
-                  loading={i === 0 ? "eager" : "lazy"}
-                  allow="autoplay; encrypted-media; fullscreen; clipboard-write; microphone; camera; display-capture"
-                />
-              </div>
-            </div>
-          </div>
+          <DemoPhone key={demo.url} demo={demo} eager={priority && i === 0} />
         ))}
       </div>
     );
@@ -121,8 +195,34 @@ export default function LiveDemo({
         )}
       </div>
 
-      <div className="relative bg-white overflow-hidden" style={{ height }}>
-        {desktopIframe}
+      <div ref={frameRef} className="relative bg-white overflow-hidden" style={{ height }}>
+        {framesInView ? (
+          demos.map((demo, i) =>
+            opened.includes(i) ? (
+              <iframe
+                key={demo.url}
+                src={demo.url}
+                className="border-0 block flex-shrink-0"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: `${100 / DESKTOP_SCALE}%`,
+                  height: `${height / DESKTOP_SCALE}px`,
+                  transform: `scale(${DESKTOP_SCALE})`,
+                  transformOrigin: "top left",
+                  // Hidden, not unmounted: display:none keeps the document
+                  // loaded, so coming back to a tab costs nothing.
+                  display: i === active ? "block" : "none",
+                }}
+                title={demo.label}
+                allow={IFRAME_ALLOW}
+              />
+            ) : null,
+          )
+        ) : (
+          <Placeholder />
+        )}
       </div>
     </div>
   );

@@ -175,7 +175,7 @@ export default function Home() {
           Projects
         </h2>
         <div className="space-y-14 stagger">
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <div key={project.name}>
               <div className="flex items-baseline justify-between mb-1 gap-3">
                 <a
@@ -257,6 +257,11 @@ export default function Home() {
                   demos={project.demos}
                   mobile={"mobile" in project ? project.mobile : false}
                   height={"demoHeight" in project ? project.demoHeight : 500}
+                  // Only the first project's first demo starts on its own. It's
+                  // the one above the fold, and waiting for hydration before
+                  // even asking for it costs seconds on a slow machine. Every
+                  // other demo waits to be scrolled to — see LiveDemo.
+                  priority={i === 0}
                 />
               )}
             </div>
