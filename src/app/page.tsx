@@ -4,6 +4,27 @@ import LiveDemo from "@/components/LiveDemo";
 
 const projects = [
   {
+    name: "Tarrow",
+    url: "https://tarrow.vercel.app",
+    urlLabel: "tarrow.vercel.app",
+    github: "https://github.com/Keugene11/tarrow",
+    demoHeight: 560,
+    demos: [
+      // The real app, signed out: visitors land straight in the chat, and only
+      // sending a message asks them to sign in. Checked it sets no
+      // X-Frame-Options or frame-ancestors, so it renders in the embed.
+      { label: "Try Tarrow", url: "https://tarrow.vercel.app" },
+    ],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Neon", "OpenRouter", "Groq", "Capacitor", "Whisper", "Tailwind CSS"],
+    bullets: [
+      "A personal AI agent — Claude Code for your life. A short onboarding interview builds a long-term memory of you, then the agent goes and does things: researches the web, finds places on Google Maps, checks weather and events, drafts messages, manages goals and tasks, and runs recurring routines you approve first",
+      "Looks and works like Claude Code in a terminal: a monospace transcript of ● Tool(args) and └ result lines, a thinking spinner, slash commands, and effort modes from Fast to Standard, Deep and Marathon",
+      "A durable run engine so a task can run for up to 45 minutes on 300-second serverless functions: every run is a Postgres row, advanced by chained, lease-based worker invocations with crash recovery and streamed to the client over SSE. Parallel sub-agents run as child runs that wake the parent when they finish",
+      "Inference routed across open-weight models — GLM via OpenRouter, then DeepSeek, then Groq — with rate-limit-aware retries, so one provider hitting its limit doesn't stop a run",
+      "Native iOS and Android through a Capacitor shell: Sign in with Apple, APNs push, and voice input transcribed with Whisper",
+    ],
+  },
+  {
     name: "Wingmate",
     url: "https://wingmate.live",
     urlLabel: "wingmate.live",
