@@ -7,7 +7,6 @@ const projects = [
     name: "Tarrow",
     url: "https://tarrow.vercel.app",
     urlLabel: "tarrow.vercel.app",
-    github: "https://github.com/Keugene11/tarrow",
     demoHeight: 560,
     demos: [
       // The real app, signed out: visitors land straight in the chat, and only
@@ -28,7 +27,6 @@ const projects = [
     name: "Wingmate",
     url: "https://wingmate.live",
     urlLabel: "wingmate.live",
-    github: "https://github.com/Keugene11/Wingmate",
     // No demoHeight: mobile demos are a fixed 390x844 phone (see LiveDemo).
     mobile: true,
     storeLinks: [
@@ -210,15 +208,18 @@ export default function Home() {
                   </h3>
                 </a>
                 <div className="flex items-center gap-3 flex-shrink-0">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-text-muted hover:text-text transition-colors"
-                    title="View source on GitHub"
-                  >
-                    <Github size={15} strokeWidth={1.5} />
-                  </a>
+                  {/* Public repos only: a private one is a 404 to visitors. */}
+                  {"github" in project && project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-text-muted hover:text-text transition-colors"
+                      title="View source on GitHub"
+                    >
+                      <Github size={15} strokeWidth={1.5} />
+                    </a>
+                  )}
                   <a
                     href={project.url}
                     target="_blank"

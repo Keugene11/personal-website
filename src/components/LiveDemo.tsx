@@ -13,6 +13,8 @@ const DESKTOP_SCALE = 0.7;
 const PHONE_W = 390;
 const PHONE_H = 844;
 const BEZEL = 10;
+const FRAME_W = PHONE_W + BEZEL * 2;
+const FRAME_H = PHONE_H + BEZEL * 2;
 
 // How far ahead of the viewport a demo starts loading. Enough that it is
 // usually ready by the time it is actually on screen, small enough that
@@ -80,33 +82,68 @@ const IFRAME_ALLOW =
 /** One phone in the stacked mobile layout, loaded when it comes into view. */
 function DemoPhone({ demo, eager }: { demo: Demo; eager: boolean }) {
   const [ref, inView] = useInView<HTMLDivElement>(eager);
+  const slotRef = useRef<HTMLDivElement>(null);
+  // Null until measured. Wherever the column is wider than the phone (desktop)
+  // this settles at 1 and the phone stays exactly 1:1 — see PHONE_W.
+  const [scale, setScale] = useState<number | null>(null);
+
+  // The phone is 410px wide, wider than a phone's own screen: at 390px the page
+  // scrolled sideways. Rather than squeezing the iframe into a narrower viewport
+  // (re-laying-out the app for a screen size no real phone has), shrink the
+  // whole device uniformly, so a small screen shows the same 390x844 app, just
+  // smaller. The slot holds the scaled size in layout; the phone inside is
+  // transformed to fill it.
+  useEffect(() => {
+    const slot = slotRef.current;
+    if (!slot) return;
+    const measure = () => setScale(Math.min(1, slot.clientWidth / FRAME_W));
+    measure();
+    if (typeof ResizeObserver === "undefined") return;
+    const obs = new ResizeObserver(measure);
+    obs.observe(slot);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <div className="flex flex-col items-center gap-2.5">
+    <div className="w-full flex flex-col items-center gap-2.5">
       <span className="text-[11px] uppercase tracking-widest text-text-muted font-medium">
         {demo.label}
       </span>
       <div
-        ref={ref}
-        className="rounded-[44px] bg-[#1a1a1a] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)] overflow-hidden"
+        ref={slotRef}
+        className="relative w-full"
         style={{
-          width: PHONE_W + BEZEL * 2,
-          height: PHONE_H + BEZEL * 2,
-          padding: BEZEL,
+          maxWidth: FRAME_W,
+          aspectRatio: `${FRAME_W} / ${FRAME_H}`,
+          // Before the first measurement a narrow screen would briefly get the
+          // full-size phone; clip it rather than widen the page.
+          overflow: scale === null ? "hidden" : undefined,
         }}
       >
-        <div className="rounded-[34px] overflow-hidden bg-white h-full">
-          {inView ? (
-            <iframe
-              src={demo.url}
-              className="border-0 block flex-shrink-0"
-              style={{ width: PHONE_W, height: PHONE_H }}
-              title={demo.label}
-              allow={IFRAME_ALLOW}
-            />
-          ) : (
-            <Placeholder />
-          )}
+        <div
+          ref={ref}
+          className="absolute top-0 left-0 rounded-[44px] bg-[#1a1a1a] shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)] overflow-hidden"
+          style={{
+            width: FRAME_W,
+            height: FRAME_H,
+            padding: BEZEL,
+            transform: scale !== null && scale < 1 ? `scale(${scale})` : undefined,
+            transformOrigin: "top left",
+          }}
+        >
+          <div className="rounded-[34px] overflow-hidden bg-white h-full">
+            {inView ? (
+              <iframe
+                src={demo.url}
+                className="border-0 block flex-shrink-0"
+                style={{ width: PHONE_W, height: PHONE_H }}
+                title={demo.label}
+                allow={IFRAME_ALLOW}
+              />
+            ) : (
+              <Placeholder />
+            )}
+          </div>
         </div>
       </div>
     </div>
