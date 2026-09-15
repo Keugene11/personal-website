@@ -4,6 +4,26 @@ import LiveDemo from "@/components/LiveDemo";
 
 const projects = [
   {
+    name: "Understudy",
+    url: "https://getunderstudy.vercel.app",
+    urlLabel: "getunderstudy.vercel.app",
+    demoHeight: 560,
+    demos: [
+      // The public site, signed out. Checked it sets no X-Frame-Options or
+      // frame-ancestors, so it renders in the embed.
+      { label: "Try Understudy", url: "https://getunderstudy.vercel.app" },
+    ],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Neon Postgres", "OpenRouter", "Playwright", "Chrome Extension (MV3)", "Stripe", "Tailwind CSS"],
+    bullets: [
+      "An AI agent that runs your job search end to end: it finds openings across 20,000+ company career pages, scores how well you fit, tailors your resume without inventing anything, answers every application question, and submits from your own browser — 30+ real applications confirmed sent on its first day",
+      "Crawls Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Workable and Recruitee through their public job APIs — 350,000+ open US and remote roles — upserting on board and job id, closing roles by id diff instead of timestamps, with per-platform concurrency limits on a scheduled crawl",
+      "Two-stage matching: a SQL prefilter and a batched LLM rank on title and location, then a deep score against the full description with reasons, gaps, and hard caps when you miss a real requirement. Every tailored bullet must cite the source bullets it came from, and any number or skill not in the original resume is blocked in code",
+      "A Chrome extension sends approved applications hands-off from pinned background tabs in a real browser, since Greenhouse, Lever and Ashby bot-score every submit: parallel workers with one tab per job site, exclusive server-side claims so nothing sends twice, and a repair pass that re-enters answers a form flags as missing before resubmitting",
+      "Fixed answers before the model for questions that shouldn't need a person — sponsorship, work authorization, self-ID, prior-employment conflicts — and a Workday driver keyed on data-automation-id that creates per-employer accounts with AES-256-GCM-encrypted credentials and walks the multi-step wizard",
+      "Autopilot runs on a schedule: strongest matches first, then short resume-only forms, within daily caps and at most two applications per company a month, with Stripe plans, a receipt of every answer sent, and per-call model cost tracking that keeps an application under a cent",
+    ],
+  },
+  {
     name: "Tarrow",
     url: "https://tarrow.vercel.app",
     urlLabel: "tarrow.vercel.app",
@@ -14,13 +34,14 @@ const projects = [
       // X-Frame-Options or frame-ancestors, so it renders in the embed.
       { label: "Try Tarrow", url: "https://tarrow.vercel.app" },
     ],
-    stack: ["Next.js 16", "React 19", "TypeScript", "Neon", "OpenRouter", "Groq", "Capacitor", "Whisper", "Tailwind CSS"],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Neon", "OpenRouter", "Groq", "Capacitor", "Stripe", "StoreKit 2", "Whisper", "Tailwind CSS"],
     bullets: [
-      "A personal AI agent — Claude Code for your life. A short onboarding interview builds a long-term memory of you, then the agent goes and does things: researches the web, finds places on Google Maps, checks weather and events, drafts messages, manages goals and tasks, and runs recurring routines you approve first",
-      "Looks and works like Claude Code in a terminal: a monospace transcript of ● Tool(args) and └ result lines, a thinking spinner, slash commands, and effort modes from Fast to Standard, Deep and Marathon",
+      "A personal AI agent — Claude Code for your life. Your first chat is an interview that builds a long-term memory of you; from then on the agent goes and does things: researches the web, finds places on Google Maps, checks weather and events, drafts messages, manages goals and tasks, and runs recurring routines you approve first",
+      "Looks and works like Claude Code in a terminal: a monospace transcript of ● Tool(args) and └ result lines, a thinking spinner with live “Thought for Ns” timing, slash commands, light and dark themes, and effort modes from Fast to Standard, Deep and Marathon. No landing page — visitors land straight in the chat, and signing in runs the message they already typed",
       "A durable run engine so a task can run for up to 45 minutes on 300-second serverless functions: every run is a Postgres row, advanced by chained, lease-based worker invocations with crash recovery and streamed to the client over SSE. Parallel sub-agents run as child runs that wake the parent when they finish",
-      "Inference routed across open-weight models — GLM via OpenRouter, then DeepSeek, then Groq — with rate-limit-aware retries, so one provider hitting its limit doesn't stop a run",
-      "Native iOS and Android through a Capacitor shell: Sign in with Apple, APNs push, and voice input transcribed with Whisper",
+      "Inference routed across open-weight models — GLM-5.3-Flash via OpenRouter, then DeepSeek, then Groq — with rate-limit-aware retries and per-call cost tracking, so one provider hitting its limit doesn't stop a run",
+      "iOS and Android apps through a Capacitor shell with native Sign in with Apple, Google sign-in, APNs push, haptics and Whisper voice input — built and signed in GitHub Actions, with TestFlight and Play internal testing builds uploaded",
+      "Free and Pro plans ($20/month or $100/year) billed through Stripe on the web, StoreKit 2 on iOS and Play Billing on Android, with every purchase verified server-side instead of through RevenueCat — plus App Store privacy compliance, including explicit AI data-sharing consent enforced on the server",
     ],
   },
   {
