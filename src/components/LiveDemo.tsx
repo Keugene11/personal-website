@@ -25,12 +25,12 @@ const PRELOAD_MARGIN = "200px";
  * Every demo on this page is an entire web app — its own framework, its own
  * bundle, its own cold serverless start. Six of them booting at once is what
  * made the first one anybody looks at take the better part of a minute:
- * measured on a throttled connection (4 Mbps / 120 ms / 4x CPU), the Wingmate
+ * measured on a throttled connection (4 Mbps / 120 ms / 4x CPU), the first
  * phone was usable at 33.9s with every frame loading, 11.5s with only itself.
  *
  * `loading="lazy"` does NOT solve this and was already tried. Chrome's lazy
  * threshold is generous enough that a frame most of a screen below the fold
- * loads immediately anyway — both Wingmate phones were requested within 15ms of
+ * loads immediately anyway — both phones were requested within 15ms of
  * each other. So the gate has to be explicit: no `src` at all until the frame
  * is genuinely near the viewport.
  *

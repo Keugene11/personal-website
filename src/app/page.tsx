@@ -2,7 +2,18 @@ import { Github, Linkedin, ExternalLink, Download } from "lucide-react";
 import EmailReveal from "@/components/EmailReveal";
 import LiveDemo from "@/components/LiveDemo";
 
-const projects = [
+type Project = {
+  name: string;
+  url: string;
+  urlLabel: string;
+  github?: string;
+  demoHeight?: number;
+  demos?: { label: string; url: string }[];
+  stack: string[];
+  bullets: string[];
+};
+
+const projects: Project[] = [
   {
     name: "Understudy",
     url: "https://getunderstudy.vercel.app",
@@ -43,37 +54,6 @@ const projects = [
       "Inference routed across open-weight models — GLM-5.3-Flash via OpenRouter, then DeepSeek, then Groq — with rate-limit-aware retries and per-call cost tracking, so one provider hitting its limit doesn't stop a run",
       "iOS and Android apps through a Capacitor shell with native Sign in with Apple, Google sign-in, APNs push, haptics and Whisper voice input — built and signed in GitHub Actions, with TestFlight and Play internal testing builds uploaded",
       "Free and Pro plans ($20/month or $100/year) billed through Stripe on the web, StoreKit 2 on iOS and Play Billing on Android, with every purchase verified server-side instead of through RevenueCat — plus App Store privacy compliance, including explicit AI data-sharing consent enforced on the server",
-    ],
-  },
-  {
-    name: "Wingmate",
-    url: "https://wingmate.live",
-    urlLabel: "wingmate.live",
-    // No demoHeight: mobile demos are a fixed 390x844 phone (see LiveDemo).
-    mobile: true,
-    storeLinks: [
-      { label: "App Store", url: "https://apps.apple.com/app/id6761027246" },
-      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.approachai.twa" },
-    ],
-    demos: [
-      // The real shipped app, signed in as a demo account — not a mockup. This
-      // alias resolves the session from the Host header instead of a cookie,
-      // which is what makes it work inside a cross-origin iframe.
-      { label: "Main App", url: "https://wingmate-demo.vercel.app" },
-      // Same alias, for the same reason. Pointed at wingmate.live it was a dead
-      // end: no Host-header session, cookies dropped in a cross-origin iframe,
-      // so it rendered signed-out and sent visitors to "Create an account" —
-      // where Google and Apple both refuse to render sign-in inside a frame.
-      { label: "Onboarding", url: "https://wingmate-demo.vercel.app/onboarding" },
-    ],
-    stack: ["Next.js 16", "React 19", "TypeScript", "Claude API", "Neon", "Upstash Redis", "Stripe", "RevenueCat", "Capacitor", "Firebase", "APNs", "PostHog", "Tailwind CSS"],
-    bullets: [
-      "A community of cold approachers — the guys actually going out and talking to strangers, in one room together comparing what worked last night. Live on the Apple App Store and Google Play, completely free with no paywall, with 220+ users and $300 in revenue earned before it went free",
-      "The room itself is a Discord-style chat channel on the home tab — not a feed you scroll past: replies, emoji reactions, edit and delete, @mentions, moderation, and a members directory, with 400+ messages in the main room. Around it, a board to vote on what gets built next and long-form articles on the fundamentals",
-      "Find a Wingman is how the community turns into people you actually meet: a live map of who is out tonight, filterable by city, with city group chats and 750+ DMs behind it. Wing requests auto-accept when two people ask each other. Every pin is dropped by hand on the map rather than read off GPS, and expires after seven days — so it shows who is around now instead of a graveyard of people who were around in March",
-      "Roster logs every approach — outcome, contact, flake/ghost status — and, unusually, the ones you didn't make, with prompts on what stopped you. 130+ logged so far, feeding insights on conversion, flake-rate by attractiveness, streaks, and a world map of where people are from",
-      "Native depth past the webview: Capacitor shells that load the live site, so web changes ship without store review, plus native code where it matters — FCM on Android with conversation-style notifications you can reply to from the shade, direct APNs over HTTP/2 on iOS, an in-app inbox, and home-screen streak widgets in WidgetKit and on Android",
-      "Built the full billing stack during the app's paid run — RevenueCat for App Store and Google Play subscriptions, Stripe for web, idempotent webhook-driven entitlement sync, conversion tracking, past-due recovery and win-back offers — now switched off, with the whole app free for everyone. Release pipeline automated end to end: Fastlane + GitHub Actions to Play, one-click App Store Connect submission, PostHog funnels",
     ],
   },
   {
@@ -231,7 +211,7 @@ export default function Home() {
                 </a>
                 <div className="flex items-center gap-3 flex-shrink-0">
                   {/* Public repos only: a private one is a 404 to visitors. */}
-                  {"github" in project && project.github && (
+                  {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
@@ -277,30 +257,11 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Store links */}
-              {"storeLinks" in project && project.storeLinks && (
-                <div className="flex gap-2 mt-3">
-                  {project.storeLinks.map((link) => (
-                    <a
-                      key={link.url}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="press flex items-center gap-1.5 text-[12px] text-text-muted bg-bg-input border border-border px-3 py-1.5 rounded-full hover:text-text transition-colors"
-                    >
-                      <ExternalLink size={11} strokeWidth={2} />
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-
               {/* Live demo embed */}
               {project.demos && (
                 <LiveDemo
                   demos={project.demos}
-                  mobile={"mobile" in project ? project.mobile : false}
-                  height={"demoHeight" in project ? project.demoHeight : 500}
+                  height={project.demoHeight ?? 500}
                   // Only the first project's first demo starts on its own. It's
                   // the one above the fold, and waiting for hydration before
                   // even asking for it costs seconds on a slow machine. Every
