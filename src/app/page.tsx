@@ -16,13 +16,13 @@ type Project = {
 const projects: Project[] = [
   {
     name: "Understudy",
-    url: "https://getunderstudy.vercel.app",
-    urlLabel: "getunderstudy.vercel.app",
+    url: "https://understudy.live",
+    urlLabel: "understudy.live",
     demoHeight: 560,
     demos: [
       // The public site, signed out. Checked it sets no X-Frame-Options or
       // frame-ancestors, so it renders in the embed.
-      { label: "Try Understudy", url: "https://getunderstudy.vercel.app" },
+      { label: "Try Understudy", url: "https://understudy.live" },
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Neon Postgres", "OpenRouter", "Playwright", "Chrome Extension (MV3)", "Stripe", "Tailwind CSS"],
     bullets: [

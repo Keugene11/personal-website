@@ -26,8 +26,8 @@ export default function RootLayout({
             DNS and TLS to its origin out of the way while the page itself is
             still rendering takes a couple of round trips off the time before it
             shows anything. */}
-        <link rel="preconnect" href="https://getunderstudy.vercel.app" />
-        <link rel="dns-prefetch" href="https://getunderstudy.vercel.app" />
+        <link rel="preconnect" href="https://understudy.live" />
+        <link rel="dns-prefetch" href="https://understudy.live" />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
