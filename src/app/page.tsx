@@ -20,18 +20,19 @@ const projects: Project[] = [
     urlLabel: "understudy.live",
     demoHeight: 560,
     demos: [
-      // The public site, signed out. Checked it sets no X-Frame-Options or
-      // frame-ancestors, so it renders in the embed.
+      // The public site, signed out. understudy.live's frame-ancestors allows
+      // keugenelee.com by name, so it renders in the embed.
       { label: "Try Understudy", url: "https://understudy.live" },
     ],
-    stack: ["Next.js 16", "React 19", "TypeScript", "Neon Postgres", "OpenRouter", "Playwright", "Chrome Extension (MV3)", "Stripe", "Tailwind CSS"],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Neon Postgres", "OpenRouter", "Playwright", "Chrome Extension (MV3)", "Gmail API", "Stripe", "Tailwind CSS"],
     bullets: [
-      "An AI agent that runs your job search end to end: it finds openings across 20,700 company career pages, scores how well you fit, tailors your resume without inventing anything, answers every application question, and submits from your own browser — 330+ applications confirmed sent to 315 companies in its first two days",
-      "Crawls Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Workable and Recruitee through their public job APIs — 430,000+ open US and remote roles — closing roles by id diff rather than timestamps, and skipping the write entirely when a board's listing fingerprint hasn't changed",
-      "Two-stage matching: a SQL prefilter and a batched LLM rank on title and location, then a deep score against the full description with reasons, gaps, and hard caps when you miss a real requirement. Every tailored bullet must cite the source bullets it came from, and any number or skill not in the original resume is blocked in code",
-      "A Chrome extension sends approved applications hands-off from pinned background tabs in a real browser, since Greenhouse, Lever and Ashby bot-score every submit: parallel workers with one tab per job site, exclusive server-side claims so nothing sends twice, and a repair pass that re-enters answers a form flags as missing before resubmitting",
-      "Fixed answers before the model for questions that shouldn't need a person — sponsorship, work authorization, self-ID, prior-employment conflicts — and a Workday driver keyed on data-automation-id that creates per-employer accounts with AES-256-GCM-encrypted credentials and walks the multi-step wizard",
-      "A fast lane re-crawls the 1,800 boards that actually produce roles worth applying to every five minutes and applies on arrival — that cut the median age of a job at application time from 13 days to under an hour, with the best case one minute after a posting appeared. Autopilot still owns the limits: two applications per company a month, plan and daily caps, a receipt of every answer sent, under a cent of model cost per application",
+      "An AI agent that runs your job search end to end: it finds openings across 20,000+ company career pages, scores how well you fit, answers every application question, and submits from your own browser. On my own job search it has sent 798 applications to 657 employers, and 224 of those employers have already emailed back a receipt",
+      "Crawls Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Workable and Recruitee through their public job APIs, 420,000+ open US and remote roles, closing roles by id diff rather than timestamps and skipping the write entirely when a board's listing fingerprint hasn't changed",
+      "Two-stage matching: a SQL prefilter and a batched LLM rank on title and location, then a deep score against the full description with reasons, gaps, and hard caps when you miss a real requirement. Your resume goes out exactly as you uploaded it",
+      "A Chrome extension sends approved applications hands-off from pinned background tabs in a real browser, since Greenhouse, Lever and Ashby bot-score every submit, with exclusive server-side claims so nothing sends twice. A Workday driver keyed on data-automation-id creates per-employer accounts with AES-256-GCM-encrypted credentials, verifies them through Gmail and walks the multi-step wizard",
+      "Answers you can trust: deterministic rules decide sponsorship, work authorization, self-ID and conflict-of-interest questions before any model sees them, and a second model proofreads every application against your profile before it leaves, flipping anything that contradicts it. Every question and answer is logged and searchable",
+      "When a send fails it is triaged, not blindly retried: the fields the form rejected are re-answered and resent, and repeated failures with one signature pause that job site until a fixed extension version checks in. Employer receipts are matched from Gmail every five minutes, so you can see which applications a company has confirmed",
+      "A fast lane re-crawls the 1,800 boards that actually produce roles worth applying to every five minutes and applies on arrival, which cut the median age of a job at application time from 13 days to under an hour. Autopilot still owns the limits: one application per employer a month, plan and daily caps, under a cent of model cost per application",
       "A second channel for roles that never reach a job board: it reads Hacker News hiring threads, Show HN and YC launch announcements for founders who leave an email — resolving the company's own domain when they don't — scores each lead, and drafts a short email that has to cite something real from their post. You approve and send it yourself; nothing here mails anyone",
     ],
   },
