@@ -81,20 +81,6 @@ const projects: Project[] = [
     ],
   },
   {
-    name: "Manual Support Agent",
-    url: "https://prox-challenge-sooty.vercel.app",
-    urlLabel: "prox-challenge-sooty.vercel.app",
-    github: "https://github.com/Keugene11/manual-support-agent",
-    demos: [{ label: "Try Demo", url: "https://prox-challenge-sooty.vercel.app" }],
-    stack: ["Next.js 16", "TypeScript", "Claude API", "Tailwind CSS", "pdfjs-dist", "Vercel"],
-    bullets: [
-      "AI support agent for the Vulcan OmniPro 220 industrial welding machine — turns a 48-page manual into an expert you can ask anything",
-      "Indexes the manual offline with Claude Sonnet vision: each page is rendered, captioned, and stored as a pre-built knowledge base — 90 seconds from clone to first answer",
-      "Surfaces relevant manual diagrams and schematics alongside answers — duty cycles, polarity setups, wire feed troubleshooting, and weld diagnosis",
-      "Hand-rolled tool loop on Next.js App Router to stay within Vercel's 250MB serverless limit while maintaining full streaming",
-    ],
-  },
-  {
     name: "SoundSense",
     url: "https://soundsense.vercel.app",
     urlLabel: "soundsense.vercel.app",
