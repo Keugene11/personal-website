@@ -62,14 +62,14 @@ const projects: Project[] = [
     github: "https://github.com/Keugene11/cluely",
     demoHeight: 560,
     demos: [
-      // The real assistant, unauthenticated: type a question and Claude answers
-      // in the same panel the desktop app renders. "Share a window" hands it a
+      // The real assistant, unauthenticated: type a question and a cheap OpenRouter
+      // model (Gemini Flash-Lite) answers in the same panel the desktop app renders. "Share a window" hands it a
       // screenshot, which is as close to the real screen-reading as a browser
       // tab is allowed to get — the iframe carries display-capture for it.
       { label: "Try Otto", url: "https://cluely-delta.vercel.app/demo" },
       { label: "Landing", url: "https://cluely-delta.vercel.app" },
     ],
-    stack: ["Next.js 16", "React 19", "TypeScript", "Electron", "Claude API", "Neon", "Whisper (transformers.js)", "Tailwind CSS", "electron-builder"],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Electron", "Claude API", "OpenRouter", "Neon", "Whisper (transformers.js)", "Tailwind CSS", "electron-builder"],
     bullets: [
       "Always-on-top desktop assistant for Windows that can see your screen and use your computer — one hotkey reads whatever is in front of you and either answers it, walks you through it, or does it for you",
       "No mode switch: Claude decides per message whether the reply is an answer, a step-by-step walkthrough, or launching an app, and all three land in the same thread — the user never picks a tool",
@@ -85,10 +85,10 @@ const projects: Project[] = [
     github: "https://github.com/Keugene11/SoundSense",
     demoHeight: 420,
     demos: [{ label: "Try Demo", url: "https://soundsense.vercel.app" }],
-    stack: ["Next.js 16", "TypeScript", "Claude API", "Supabase", "Tailwind CSS", "YouTube Data API", "Last.fm API"],
+    stack: ["Next.js 16", "TypeScript", "OpenRouter", "Gemini Flash-Lite", "Supabase", "Tailwind CSS", "YouTube Data API", "Last.fm API"],
     bullets: [
-      "AI music discovery app — enter a song you love and Claude builds a playlist of tracks you'll actually want to hear, each with an explanation of why",
-      "Claude analyzes genre, vibe, and sonic qualities using Last.fm, TasteDive, and ListenBrainz to match energy and mood, not just genre",
+      "AI music discovery app — enter a song you love and an LLM builds a playlist of tracks you'll actually want to hear, each with an explanation of why",
+      "The model weighs genre, vibe, and sonic qualities using Last.fm, TasteDive, and ListenBrainz to match energy and mood, not just genre",
       "Every recommendation is cross-verified on YouTube and Last.fm so every song is real and playable",
       "Spotify-style playlist player with a now-playing bar, autoplay, and like/dislike feedback that shapes future recommendations",
     ],
@@ -113,10 +113,10 @@ const projects: Project[] = [
     github: "https://github.com/Keugene11/daily",
     demoHeight: 550,
     demos: [{ label: "Try Demo", url: "https://getdaily.live" }],
-    stack: ["React", "Vite", "Express", "TypeScript", "Claude API", "Supabase", "Google Places API"],
+    stack: ["React", "Vite", "Express", "TypeScript", "OpenRouter", "Gemini Flash-Lite", "Supabase", "Google Places API"],
     bullets: [
       "AI-powered day planner that turns a city and budget into a complete itinerary, pulling live data from Google Places, weather, transit, events, and more",
-      "Backend calls every relevant tool in parallel, then Claude Haiku synthesizes the results into real venues with prices, clickable Google Maps links, and an interactive map",
+      "Backend calls every relevant tool in parallel, then Gemini Flash-Lite (via OpenRouter) synthesizes the results into real venues with prices, clickable Google Maps links, and an interactive map",
       "Watch the plan build live via Server-Sent Events, with a nightlife mode for evening plans and weather-based outfit suggestions",
       "Supabase auth with cloud-synced plan history",
     ],
@@ -127,7 +127,7 @@ const skills = [
   { category: "Languages", items: ["JavaScript", "TypeScript", "SQL"] },
   { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Vite"] },
   { category: "Backend", items: ["Node.js", "Express", "PostgreSQL", "Firebase"] },
-  { category: "APIs & AI", items: ["Claude API", "OpenAI API", "Vercel AI SDK", "Stripe API", "Google Places API"] },
+  { category: "APIs & AI", items: ["Claude API", "OpenRouter", "OpenAI API", "Vercel AI SDK", "Stripe API", "Google Places API"] },
   { category: "Tools", items: ["Git", "Vercel", "Supabase", "Capacitor", "Claude Code"] },
 ];
 
