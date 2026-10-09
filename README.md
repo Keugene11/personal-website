@@ -9,7 +9,7 @@ My personal portfolio website showcasing AI-powered products and social platform
 Each web app embeds the running app, not a screenshot.
 
 - **Understudy** — AI agent that runs a job search end to end: crawls 20,700 ATS boards, scores fit, tailors the resume without inventing anything, answers every form question and submits from your own browser
-- **Deck** — Desktop app for running many Claude Code sessions: projects on the left, Claude tabs on top
+- **Deck** — Desktop app for running many Claude Code agents in parallel, with a live working/done mark on every tab and project
 - **Tarrow** — Personal AI agent in a Claude-Code-style terminal UI, with a durable run engine, parallel sub-agents, and iOS/Android apps
 - **Manual Support Agent** — Support agent answering from a 102-page welding-machine manual with grounded citations
 - **SoundSense** — AI music discovery that finds verified songs by sonic qualities and mood
