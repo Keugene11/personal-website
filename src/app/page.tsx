@@ -79,6 +79,21 @@ const projects: Project[] = [
     ],
   },
   {
+    name: "Deck",
+    // A desktop app with no hosted version, so the name links to the repo.
+    url: "https://github.com/Keugene11/deck",
+    urlLabel: "github.com/Keugene11/deck",
+    github: "https://github.com/Keugene11/deck",
+    stack: ["Electron", "xterm.js", "node-pty", "JavaScript", "Claude Code"],
+    bullets: [
+      "A desktop app for running many Claude Code sessions at once: every project down the left, its Claude tabs across the top, like an editor where each tab is an agent working in that folder",
+      "Real terminals, not a chat wrapper: xterm.js on node-pty with truecolor, copy/paste and font sizing, each tab spawning Claude Code in its project's folder, with PowerShell tabs beside them",
+      "Projects come straight from the folders on disk, most recently used first; typing a name that doesn't exist creates the folder and runs git init, and folders opened from anywhere else stay on the list",
+      "Keyboard-first, with editor shortcuts for new tab, close, cycle, jump to tab and search, plus a sidebar badge showing how many sessions are open in each project",
+      "Plain HTML, CSS and JS with no framework or bundler, packed with electron-packager and installed by a script that writes its own Desktop and Start menu shortcuts",
+    ],
+  },
+  {
     name: "SoundSense",
     url: "https://soundsense.vercel.app",
     urlLabel: "soundsense.vercel.app",
