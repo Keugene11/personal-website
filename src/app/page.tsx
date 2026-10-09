@@ -9,6 +9,8 @@ type Project = {
   github?: string;
   demoHeight?: number;
   demos?: { label: string; url: string }[];
+  // For apps that can't be embedded (desktop apps): a real screenshot instead.
+  image?: { src: string; alt: string; width: number; height: number };
   stack: string[];
   bullets: string[];
 };
@@ -84,6 +86,7 @@ const projects: Project[] = [
     url: "https://github.com/Keugene11/deck",
     urlLabel: "github.com/Keugene11/deck",
     github: "https://github.com/Keugene11/deck",
+    image: { src: "/deck.png", alt: "Deck with four Claude Code tabs open, one mid-task", width: 1800, height: 1126 },
     stack: ["Electron", "xterm.js", "node-pty", "JavaScript", "Claude Code"],
     bullets: [
       "A desktop app for running many Claude Code sessions at once: every project down the left, its Claude tabs across the top, like an editor where each tab is an agent working in that folder",
@@ -248,6 +251,21 @@ export default function Home() {
                   </span>
                 ))}
               </div>
+
+              {/* Screenshot */}
+              {project.image && (
+                <a href={project.image.src} target="_blank" rel="noopener noreferrer" className="block mt-5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.image.src}
+                    alt={project.image.alt}
+                    width={project.image.width}
+                    height={project.image.height}
+                    loading="lazy"
+                    className="w-full h-auto rounded-xl border border-border"
+                  />
+                </a>
+              )}
 
               {/* Live demo embed */}
               {project.demos && (
