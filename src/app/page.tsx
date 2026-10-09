@@ -37,6 +37,22 @@ const projects: Project[] = [
       "A fast lane re-crawls the 1,800 boards that actually produce roles worth applying to every five minutes and applies on arrival, which cut the median age of a job at application time from 13 days to under an hour. Autopilot still owns the limits: one application per employer a month, plan and daily caps, under a cent of model cost per application",    ],
   },
   {
+    name: "Deck",
+    // A desktop app with no hosted version, so the name links to the repo.
+    url: "https://github.com/Keugene11/deck",
+    urlLabel: "github.com/Keugene11/deck",
+    github: "https://github.com/Keugene11/deck",
+    image: { src: "/deck.png", alt: "Deck with four Claude Code tabs open, one mid-task", width: 1800, height: 1126 },
+    stack: ["Electron", "xterm.js", "node-pty", "JavaScript", "Claude Code"],
+    bullets: [
+      "A desktop app for running many Claude Code sessions at once: every project down the left, its Claude tabs across the top, like an editor where each tab is an agent working in that folder",
+      "Real terminals, not a chat wrapper: xterm.js on node-pty with truecolor, copy/paste and font sizing, each tab spawning Claude Code in its project's folder, with PowerShell tabs beside them",
+      "Projects come straight from the folders on disk, most recently used first; typing a name that doesn't exist creates the folder and runs git init, and folders opened from anywhere else stay on the list",
+      "Keyboard-first, with editor shortcuts for new tab, close, cycle, jump to tab and search, plus a sidebar badge showing how many sessions are open in each project",
+      "Plain HTML, CSS and JS with no framework or bundler, packed with electron-packager and installed by a script that writes its own Desktop and Start menu shortcuts",
+    ],
+  },
+  {
     name: "Tarrow",
     url: "https://tarrow.vercel.app",
     urlLabel: "tarrow.vercel.app",
@@ -55,45 +71,6 @@ const projects: Project[] = [
       "Inference routed across open-weight models — GLM-5.3-Flash via OpenRouter, then DeepSeek, then Groq — with rate-limit-aware retries and per-call cost tracking, so one provider hitting its limit doesn't stop a run",
       "iOS and Android apps through a Capacitor shell with native Sign in with Apple, Google sign-in, APNs push, haptics and Whisper voice input — built and signed in GitHub Actions, with TestFlight and Play internal testing builds uploaded",
       "Free and Pro plans ($20/month or $100/year) billed through Stripe on the web, StoreKit 2 on iOS and Play Billing on Android, with every purchase verified server-side instead of through RevenueCat — plus App Store privacy compliance, including explicit AI data-sharing consent enforced on the server",
-    ],
-  },
-  {
-    name: "Otto",
-    url: "https://cluely-delta.vercel.app",
-    urlLabel: "cluely-delta.vercel.app",
-    github: "https://github.com/Keugene11/cluely",
-    demoHeight: 560,
-    demos: [
-      // The real assistant, unauthenticated: type a question and the same OpenRouter
-      // model the desktop app uses (Gemini Flash-Lite) answers in the same panel it renders. "Share a window" hands it a
-      // screenshot, which is as close to the real screen-reading as a browser
-      // tab is allowed to get — the iframe carries display-capture for it.
-      { label: "Try Otto", url: "https://cluely-delta.vercel.app/demo" },
-      { label: "Landing", url: "https://cluely-delta.vercel.app" },
-    ],
-    stack: ["Next.js 16", "React 19", "TypeScript", "Electron", "OpenRouter", "Gemini Flash-Lite", "Neon", "Whisper (transformers.js)", "Tailwind CSS", "electron-builder"],
-    bullets: [
-      "Always-on-top desktop assistant for Windows that can see your screen and use your computer — one hotkey reads whatever is in front of you and either answers it, walks you through it, or does it for you",
-      "No mode switch: one streamed tool-calling request to a vision model (Gemini Flash-Lite via OpenRouter, DeepSeek as fallback, about a tenth of a cent per ask) decides whether the reply is an answer, a step-by-step walkthrough, or launching an app, and all three land in the same thread — the user never picks a tool",
-      "Drives real input through a PowerShell host process — click, double-click, drag, scroll, typing, key combos, and restoring a minimized window — with a guiding cursor drawn on a full-screen click-through overlay so you can see what it is about to press. Every step declares what should be true on screen afterwards, gets re-checked against a fresh screenshot before the next one starts, and retries up to three times rather than claiming it worked",
-      "Push-to-talk transcription runs entirely on-device — Whisper through transformers.js, imported from a CDN at runtime so it needs no extra API key and adds nothing to the installer — and answers are spoken back through the Web Speech API",
-      "Desktop shell built on Electron with global hotkeys, a bar that resizes to hug its content and can be hidden from screen recording, and auto-updates via electron-updater. The UI is served from Vercel rather than bundled, so shipping a change never means shipping a new binary. Sessions end with a generated summary, key points, action items and a follow-up draft, stored in Neon behind JWT auth",
-    ],
-  },
-  {
-    name: "Deck",
-    // A desktop app with no hosted version, so the name links to the repo.
-    url: "https://github.com/Keugene11/deck",
-    urlLabel: "github.com/Keugene11/deck",
-    github: "https://github.com/Keugene11/deck",
-    image: { src: "/deck.png", alt: "Deck with four Claude Code tabs open, one mid-task", width: 1800, height: 1126 },
-    stack: ["Electron", "xterm.js", "node-pty", "JavaScript", "Claude Code"],
-    bullets: [
-      "A desktop app for running many Claude Code sessions at once: every project down the left, its Claude tabs across the top, like an editor where each tab is an agent working in that folder",
-      "Real terminals, not a chat wrapper: xterm.js on node-pty with truecolor, copy/paste and font sizing, each tab spawning Claude Code in its project's folder, with PowerShell tabs beside them",
-      "Projects come straight from the folders on disk, most recently used first; typing a name that doesn't exist creates the folder and runs git init, and folders opened from anywhere else stay on the list",
-      "Keyboard-first, with editor shortcuts for new tab, close, cycle, jump to tab and search, plus a sidebar badge showing how many sessions are open in each project",
-      "Plain HTML, CSS and JS with no framework or bundler, packed with electron-packager and installed by a script that writes its own Desktop and Start menu shortcuts",
     ],
   },
   {
