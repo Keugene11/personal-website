@@ -11,6 +11,8 @@ type Project = {
   demos?: { label: string; url: string }[];
   // For apps that can't be embedded (desktop apps): a real screenshot instead.
   image?: { src: string; alt: string; width: number; height: number };
+  // A recorded walkthrough, for apps whose live version shows private data.
+  video?: { src: string; poster: string; width: number; height: number };
   stack: string[];
   bullets: string[];
 };
@@ -51,6 +53,23 @@ const projects: Project[] = [
       "Real terminals, not a chat wrapper: xterm.js on node-pty with truecolor, copy/paste and font sizing, each tab spawning Claude Code in its project's folder, with PowerShell tabs beside them",
       "Keyboard-first so hopping between agents is instant: Ctrl+Tab cycles, Ctrl+1 to 9 jumps straight to a tab, Ctrl+Shift+P searches projects, and typing a project name that doesn't exist creates the folder and runs git init",
       "Plain HTML, CSS and JS with no framework or bundler, packed with electron-packager and installed by a script that writes its own Desktop and Start menu shortcuts",
+    ],
+  },
+  {
+    name: "Watcher",
+    // Runs on the owner's PC and its live dashboard shows real activity, so the
+    // link is a recorded walkthrough on fake data, not the live site.
+    url: "/watcher-demo.mp4",
+    urlLabel: "demo video",
+    video: { src: "/watcher-demo.mp4", poster: "/watcher-poster.jpg", width: 1280, height: 800 },
+    stack: ["Python", "Win32 API", "SQLite", "Claude API", "Next.js 16", "Neon Postgres", "Playwright", "Vercel"],
+    bullets: [
+      "A focus coach that watches your screen: a Windows background app tracks what you're doing all day, and every 10 minutes Claude looks at what was on screen and tells you where your time actually went, with a focus score and specific tips like \"you've read enough about this company, send the DM\"",
+      "Logs the active app, window title and idle state every 3 seconds through the Win32 API, and takes a screenshot of the active monitor once a minute, skipping it when you're away or when nothing on screen has changed (perceptual hash), so a quiet hour costs nothing",
+      "Privacy first: before every capture it walks every visible window on that monitor in z-order (about 1 ms) and skips the shot if a bank, password manager, DM, email or incognito window is even partly showing. Chrome doesn't mark incognito in the window title, so that check uses UI Automation. Screenshots are deleted after analysis and never leave the PC",
+      "Batches up to 6 screenshots plus an activity digest into one Claude call, then turns the results into deep-work blocks, a 7-day trend, a streak, a daily debrief and toasts for high-impact tips, with repeat tips from the last week filtered out",
+      "Built to run unattended: a supervisor restarts it with backoff after a crash, sleep and wake are detected, raw data rolls up into daily totals after 30 days, and it idles at about 3 seconds of CPU an hour. A Next.js dashboard on Neon syncs every 15 seconds so you can check or pause it from your phone",
+      "Covered by 96 unit tests and 23 Playwright end-to-end tests, plus a 15-finding security audit that closed CSRF, DNS rebinding and incognito leaks",
     ],
   },
   {
@@ -243,6 +262,23 @@ export default function Home() {
                     className="w-full h-auto rounded-xl border border-border"
                   />
                 </a>
+              )}
+
+              {/* Recorded demo */}
+              {project.video && (
+                <video
+                  src={project.video.src}
+                  poster={project.video.poster}
+                  width={project.video.width}
+                  height={project.video.height}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                  className="block mt-5 w-full h-auto rounded-xl border border-border"
+                />
               )}
 
               {/* Live demo embed */}
