@@ -1,4 +1,4 @@
-import { Github, Linkedin, ExternalLink } from "lucide-react";
+import { Github, Linkedin, ExternalLink, Download } from "lucide-react";
 import EmailReveal from "@/components/EmailReveal";
 import LiveDemo from "@/components/LiveDemo";
 
@@ -166,6 +166,15 @@ export default function Home() {
             title="LinkedIn"
           >
             <Linkedin size={18} strokeWidth={1.5} />
+          </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-[13px] text-text-muted hover:text-text transition-colors"
+          >
+            <Download size={15} strokeWidth={1.5} />
+            Resume
           </a>
         </div>
       </section>
