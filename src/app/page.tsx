@@ -31,7 +31,7 @@ const projects: Project[] = [
     stack: ["Next.js 16", "React 19", "TypeScript", "Neon Postgres", "OpenRouter", "Playwright", "Chrome Extension (MV3)", "Gmail API", "Stripe", "Tailwind CSS"],
     bullets: [
       "Fully autonomous job applier: finds roles that fit you and applies to them around the clock while you do nothing",
-      "140 users and 7,000+ applications sent across Greenhouse, Lever, Ashby, Workday and 20,000+ company career pages",
+      "140 users and 7,000+ applications sent, at about 3 cents of AI cost per application, across Greenhouse, Lever, Ashby, Workday and 20,000+ career pages",
       "Connects to your email to grab verification codes and confirm new accounts, so multi-step portals like Workday get done end to end",
       "Tracks every application and every answer it gave, and matches employer replies from your inbox",
     ],
