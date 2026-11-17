@@ -30,10 +30,10 @@ const projects: Project[] = [
     ],
     stack: ["Next.js 16", "React 19", "TypeScript", "Neon Postgres", "OpenRouter", "Playwright", "Chrome Extension (MV3)", "Gmail API", "Stripe", "Tailwind CSS"],
     bullets: [
-      "AI agent that runs your job search: finds roles, scores fit, answers every question, and submits from your browser",
-      "140 users and 7,000+ applications sent; crawls 390,000+ roles across 20,000+ career pages on 7 ATSes",
-      "Chrome extension sends from real background tabs, including a Workday driver that creates and verifies accounts",
-      "Hard rules decide sponsorship and work-authorization answers, and a second model proofreads every application",
+      "Fully autonomous job applier: finds roles that fit you and applies to them around the clock while you do nothing",
+      "140 users and 7,000+ applications sent across Greenhouse, Lever, Ashby, Workday and 20,000+ company career pages",
+      "Connects to your email to grab verification codes and confirm new accounts, so multi-step portals like Workday get done end to end",
+      "Tracks every application and every answer it gave, and matches employer replies from your inbox",
     ],
   },
   {
