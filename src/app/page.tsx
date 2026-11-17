@@ -45,9 +45,10 @@ const projects: Project[] = [
     image: { src: "/deck.png", alt: "Deck with four Claude Code tabs open, one mid-task", width: 1800, height: 1126 },
     stack: ["Electron", "xterm.js", "node-pty", "JavaScript", "Claude Code"],
     bullets: [
-      "Desktop app for running many Claude Code sessions at once: projects on the left, Claude tabs on top",
-      "Sessions sharing a folder commit only their own files and deploy from a clean checkout",
-      "Click file paths in output to jump to the line, Ctrl+P fuzzy open, live reload as Claude edits",
+      "Desktop app for running many Claude Code agents in parallel: projects down the left, each one's Claude tabs across the top",
+      "Shows at a glance which agents need you: an amber spinning ring while an agent works, a blue check when it's done or waiting on you",
+      "The project list carries the same marks, so an agent that finished in another project never gets missed",
+      "Real terminals, not a chat wrapper, with keyboard shortcuts to jump between agents instantly",
     ],
   },
   {
